@@ -30,8 +30,8 @@
 - (void)dealloc
 {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center removeObserver:self name:UIKeyboardDidShowNotification object:nil];
-    [center removeObserver:self name:UIKeyboardDidHideNotification object:nil];
+    [center removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [center removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 #pragma mark - Initializers
@@ -63,12 +63,12 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardDidShow:)
-                                                 name:UIKeyboardDidShowNotification
+                                                 name:UIKeyboardWillShowNotification
                                                object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardDidHide:)
-                                                 name:UIKeyboardDidHideNotification
+                                                 name:UIKeyboardWillHideNotification
                                                object:nil];
 
     return self;
@@ -118,17 +118,17 @@
 
     switch (field.type) {
         case HYPFormFieldTypeDate:
-            identifier = HYPDateFormFieldCellIdentifier;
-            break;
+        identifier = HYPDateFormFieldCellIdentifier;
+        break;
         case HYPFormFieldTypeSelect:
-            identifier = HYPSelectFormFieldCellIdentifier;
-            break;
+        identifier = HYPSelectFormFieldCellIdentifier;
+        break;
 
         case HYPFormFieldTypeText:
         case HYPFormFieldTypeFloat:
         case HYPFormFieldTypeNumber:
-            identifier = HYPTextFormFieldCellIdentifier;
-            break;
+        identifier = HYPTextFormFieldCellIdentifier;
+        break;
 
         case HYPFormFieldTypeCustom: abort();
     }
@@ -551,7 +551,7 @@
     UIEdgeInsets inset = self.originalInset;
     inset.bottom += height;
 
-    [UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:0.10f animations:^{
         self.collectionView.contentInset = inset;
     }];
 }
@@ -561,7 +561,7 @@
     CGRect keyboardEndFrame;
     [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
 
-    [UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:0.10f animations:^{
         self.collectionView.contentInset = self.originalInset;
     }];
 }
