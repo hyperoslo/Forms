@@ -100,6 +100,10 @@ static BOOL enabledProperty;
 
 - (void)setRawText:(NSString *)rawText
 {
+    if (![rawText isKindOfClass:[NSString class]]) {
+        return;
+    }
+
     BOOL shouldFormat = (self.formatter && (rawText.length >= _rawText.length ||
                                             ![rawText isEqualToString:_rawText]));
 
