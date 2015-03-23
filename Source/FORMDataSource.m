@@ -525,8 +525,6 @@ static NSString * const FORMDynamicRemoveFieldID = @"remove";
                 [self.values enumerateKeysAndObjectsUsingBlock:^(NSString *key, id obj, BOOL *stop) {
                     if ([key hasPrefix:section.sectionID]) {
                         foundParsed = [key hyp_parseRelationship];
-                        foundParsed.index = @(self.formsManager.removedValues.count);
-                        [self.formsManager.values removeObjectForKey:key];
                         [removedKeys addObject:[foundParsed key]];
                     }
                 }];
@@ -534,7 +532,11 @@ static NSString * const FORMDynamicRemoveFieldID = @"remove";
                 foundParsed = [section.sectionID hyp_parseRelationship];
                 foundParsed.attribute = nil;
                 foundParsed.index = @(self.formsManager.removedValues.count);
-                [self.formsManager.removedValues setValue:[removedKeys copy] forKey:[foundParsed key]];
+
+                for (NSString *removedKey in removedKeys) {
+                    [self.formsManager.removedValues setValue:self.values[removedKey] forKey:removedKey];
+                    [self.formsManager.values removeObjectForKey:removedKey];
+                }
 
                 FORMGroup *group = section.form;
                 [group.sections removeObject:section];
@@ -854,6 +856,11 @@ static NSString * const FORMDynamicRemoveFieldID = @"remove";
     return [self.formsManager.removedValues copy];
 }
 
+- (void)resetRemovedValues
+{
+    [self.formsManager resetRemovedValues];
+}
+
 #pragma mark - Private methods
 
 - (void)updateSectionPosition:(FORMSection *)section
@@ -874,17 +881,18 @@ static NSString * const FORMDynamicRemoveFieldID = @"remove";
 
     [keys enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop) {
         HYPParsedRelationship *parsed = [key hyp_parseRelationship];
+        if (parsed.relationship) {
+            BOOL shouldIncrementIndex = (currentIndex &&
+                                         [parsed.index integerValue] > [currentIndex integerValue]);
+            if (shouldIncrementIndex) {
+                newIndex++;
+            }
 
-        BOOL shouldIncrementIndex = (currentIndex &&
-                                     [parsed.index integerValue] > [currentIndex integerValue]);
-        if (shouldIncrementIndex) {
-            newIndex++;
+            currentIndex = parsed.index;
+            NSString *oldKey = [parsed key];
+            NSString *newKey = [[parsed key] hyp_updateRelationshipIndex:newIndex];
+            mutableDictionary[oldKey] = newKey;
         }
-
-        currentIndex = parsed.index;
-        NSString *oldKey = [parsed key];
-        NSString *newKey = [[parsed key] hyp_updateRelationshipIndex:newIndex];
-        mutableDictionary[oldKey] = newKey;
     }];
 
     return [mutableDictionary copy];
