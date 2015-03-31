@@ -73,7 +73,6 @@
 
     NSIndexPath *previousIndexPath = [NSIndexPath indexPathForItem:indexPath.item - 1 inSection:indexPath.section];
     CGRect previousFrame = [self layoutAttributesForItemAtIndexPath:previousIndexPath].frame;
-    CGFloat previousFrameRightPoint = previousFrame.origin.x + previousFrame.size.width;
     CGRect currentFrame = attributes.frame;
 
     CGRect strecthedCurrentFrame = CGRectMake(self.sectionInset.left,
@@ -87,10 +86,6 @@
         [attributes leftAlignFrameWithSectionInset:self.sectionInset];
         return attributes;
     }
-
-    CGRect frame = attributes.frame;
-    frame.origin.x = previousFrameRightPoint + self.minimumInteritemSpacing;
-    attributes.frame = frame;
 
     return attributes;
 }
