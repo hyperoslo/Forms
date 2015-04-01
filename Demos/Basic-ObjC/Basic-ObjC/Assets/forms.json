@@ -119,7 +119,7 @@
               "type":"date",
               "validations":{
                     "compare_to":"start_date",
-                    "compare_rule":">",
+                    "compare_rule":">"
                     },
               "size":{
                 "width":25,
@@ -171,9 +171,36 @@
                   ]
                 }
               ]
-            }
-          ]
-        },
+            },
+              {
+                "id":"skill_types",
+                "title":"Special Skills",
+                "info":"What skills does he/she posess?",
+                "type":"multiselect",
+                "size":{
+                "width":50,
+                "height":1
+              },
+                "values":[
+                          {
+                            "id":0,
+                            "title":"Excel",
+                            "info":"Skilled with Microsoft Excel"
+                          },
+                          {
+                            "id":1,
+                            "title":"Word",
+                            "info":"Skilled with Microsoft Word"
+                          },
+                          {
+                            "id":2,
+                            "title":"PowerPoint",
+                            "info":"Skilled with Microsoft PowerPoint"
+                          }
+                        ]
+                }
+              ]
+            },
         {
           "id":"employment-1",
           "fields":[

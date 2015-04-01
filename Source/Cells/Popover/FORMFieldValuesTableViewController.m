@@ -34,6 +34,8 @@ static const CGFloat FORMFieldValuesCellHeight = 44.0f;
 
     self.values = [NSArray arrayWithArray:field.values];
 
+    self.tableView.allowsMultipleSelection = (field.type == FORMFieldTypeMultiselect);
+
     [self.tableView reloadData];
 }
 
@@ -100,9 +102,8 @@ static const CGFloat FORMFieldValuesCellHeight = 44.0f;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FORMFieldValue *fieldValue = self.values[indexPath.row];
-
     if ([self.delegate respondsToSelector:@selector(fieldValuesTableViewController:didSelectedValue:)]) {
+        FORMFieldValue *fieldValue = self.values[indexPath.row];
         [self.delegate fieldValuesTableViewController:self didSelectedValue:fieldValue];
     }
 }

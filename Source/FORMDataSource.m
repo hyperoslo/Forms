@@ -155,6 +155,7 @@ static NSString * const FORMDynamicRemoveFieldID = @"remove";
         case FORMFieldTypeDate:
             identifier = FORMDateFormFieldCellIdentifier;
             break;
+        case FORMFieldTypeMultiselect:
         case FORMFieldTypeSelect:
             identifier = FORMSelectFormFieldCellIdentifier;
             break;
