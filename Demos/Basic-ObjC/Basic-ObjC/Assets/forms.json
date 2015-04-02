@@ -12,7 +12,7 @@
               "title":"First name",
               "info":"Fornavn",
               "type":"name",
-              "disabled": true,
+              "disabled":true,
               "size":{
                 "width":30,
                 "height":1
@@ -118,9 +118,9 @@
               "title":"End date",
               "type":"date",
               "validations":{
-                    "compare_to":"start_date",
-                    "compare_rule":">",
-                    },
+                "compare_to":"start_date",
+                "compare_rule":">"
+              },
               "size":{
                 "width":25,
                 "height":1
@@ -169,6 +169,33 @@
                       "action":"hide"
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "id":"skill_types",
+              "title":"Special Skills",
+              "info":"What skills does he/she posess?",
+              "type":"multiselect",
+              "size":{
+                "width":50,
+                "height":1
+              },
+              "values":[
+                {
+                  "id":0,
+                  "title":"Excel",
+                  "info":"Skilled with Microsoft Excel"
+                },
+                {
+                  "id":1,
+                  "title":"Word",
+                  "info":"Skilled with Microsoft Word"
+                },
+                {
+                  "id":2,
+                  "title":"PowerPoint",
+                  "info":"Skilled with Microsoft PowerPoint"
                 }
               ]
             }
@@ -288,7 +315,7 @@
     }
   ],
   "templates":{
-    "fields": null,
+    "fields":null,
     "sections":[
       {
         "id":"companies",

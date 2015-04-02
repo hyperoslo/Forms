@@ -72,13 +72,16 @@ static const CGSize FORMSelectPopoverSize = { .width = 320.0f, .height = 308.0f 
 - (void)fieldValuesTableViewController:(FORMFieldValuesTableViewController *)fieldValuesTableViewController
                       didSelectedValue:(FORMFieldValue *)selectedValue
 {
+    // an array of values
     self.field.value = selectedValue;
 
     [self updateWithField:self.field];
 
     [self validate];
 
-    [self.popoverController dismissPopoverAnimated:YES];
+    if (self.field.type == FORMFieldTypeSelect) {
+        [self.popoverController dismissPopoverAnimated:YES];
+    }
 
     if ([self.delegate respondsToSelector:@selector(fieldCell:updatedWithField:)]) {
         [self.delegate fieldCell:self updatedWithField:self.field];
