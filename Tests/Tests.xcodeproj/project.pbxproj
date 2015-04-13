@@ -75,6 +75,7 @@
 		14B564731A06D87B00342CDA /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 14B564721A06D87B00342CDA /* .travis.yml */; };
 		14C4183D1A019A1500636FD6 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 14C418391A019A1500636FD6 /* LICENSE.md */; };
 		14C4183E1A019A1500636FD6 /* FORM.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 14C4183A1A019A1500636FD6 /* FORM.podspec */; };
+		375DE89E1ADBDD5A0098CBE0 /* FORMMultiselectFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 375DE89D1ADBDD5A0098CBE0 /* FORMMultiselectFieldCell.m */; };
 		82AB828048DF535A1FFE4CC3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3F9DD801EDC647B835EB2CF /* libPods.a */; };
 		BD5845751AC4074600596C62 /* FORMTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5845741AC4074600596C62 /* FORMTooltipView.m */; };
 		BDB7E31F1AA7016D00AF00BC /* FORMPostalCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB7E31E1AA7016D00AF00BC /* FORMPostalCodeManager.m */; };
@@ -202,6 +203,8 @@
 		14C418391A019A1500636FD6 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
 		14C4183A1A019A1500636FD6 /* FORM.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; name = FORM.podspec; path = ../FORM.podspec; sourceTree = "<group>"; };
 		14C4183B1A019A1500636FD6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		375DE89C1ADBDD5A0098CBE0 /* FORMMultiselectFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMMultiselectFieldCell.h; sourceTree = "<group>"; };
+		375DE89D1ADBDD5A0098CBE0 /* FORMMultiselectFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMMultiselectFieldCell.m; sourceTree = "<group>"; };
 		653AC6BBDF66E205BA44BA17 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B3F9DD801EDC647B835EB2CF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD5845731AC4074600596C62 /* FORMTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMTooltipView.h; sourceTree = "<group>"; };
@@ -256,6 +259,8 @@
 		144A28561A99B2CF004A9086 /* Popover */ = {
 			isa = PBXGroup;
 			children = (
+				375DE89C1ADBDD5A0098CBE0 /* FORMMultiselectFieldCell.h */,
+				375DE89D1ADBDD5A0098CBE0 /* FORMMultiselectFieldCell.m */,
 				144A28571A99B2CF004A9086 /* FORMDateFieldCell.h */,
 				144A28581A99B2CF004A9086 /* FORMDateFieldCell.m */,
 				144A28591A99B2CF004A9086 /* FORMFieldValueCell.h */,
@@ -676,6 +681,7 @@
 				144A28CD1A99B2CF004A9086 /* FORMBackgroundView.m in Sources */,
 				144A28D51A99B2CF004A9086 /* FORMInputValidator.m in Sources */,
 				149C29241A9A23DD00F88B91 /* FORMSectionTests.m in Sources */,
+				375DE89E1ADBDD5A0098CBE0 /* FORMMultiselectFieldCell.m in Sources */,
 				144A28EA1A99B2CF004A9086 /* FORMValidator.m in Sources */,
 				144A28DA1A99B2CF004A9086 /* FORMSocialSecurityNumberInputValidator.m in Sources */,
 				149C29251A9A23DD00F88B91 /* FORMDataTests.m in Sources */,
