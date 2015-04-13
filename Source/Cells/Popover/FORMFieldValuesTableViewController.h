@@ -23,4 +23,7 @@
 - (void)fieldValuesTableViewController:(FORMFieldValuesTableViewController *)fieldValuesTableViewController
                       didSelectedValue:(FORMFieldValue *)selectedValue;
 
+- (void)fieldValuesTableViewController:(FORMFieldValuesTableViewController *)fieldValuesTableViewController
+                      didDeselectedValue:(FORMFieldValue *)deselectedValue;
+
 @end

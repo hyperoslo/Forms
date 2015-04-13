@@ -33,8 +33,11 @@ static const CGFloat FORMFieldValuesCellHeight = 44.0f;
     _field = field;
 
     self.values = [NSArray arrayWithArray:field.values];
-
-    self.tableView.allowsMultipleSelection = (field.type == FORMFieldTypeMultiselect);
+    
+    if (field.type == FORMFieldTypeMultiselect) {
+        self.tableView.allowsMultipleSelection = YES;
+        self.field.selectedValues = field.selectedValues;
+    }
 
     [self.tableView reloadData];
 }
@@ -92,8 +95,18 @@ static const CGFloat FORMFieldValuesCellHeight = 44.0f;
             [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
         }
     } else {
-        if ([fieldValue identifierIsEqualTo:self.field.value]) {
-            [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        if (self.field.type == FORMFieldTypeMultiselect)
+        {
+            if ([(NSArray*)self.field.selectedValues indexOfObject:self.field.title]!= NSNotFound)
+            {
+                 [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+            }
+        }
+        else
+        {
+            if ([fieldValue identifierIsEqualTo:self.field.value]) {
+                [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+            }
         }
     }
 
@@ -105,6 +118,14 @@ static const CGFloat FORMFieldValuesCellHeight = 44.0f;
     if ([self.delegate respondsToSelector:@selector(fieldValuesTableViewController:didSelectedValue:)]) {
         FORMFieldValue *fieldValue = self.values[indexPath.row];
         [self.delegate fieldValuesTableViewController:self didSelectedValue:fieldValue];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.delegate respondsToSelector:@selector(fieldValuesTableViewController:didDeselectedValue:)]) {
+        FORMFieldValue *fieldValue = self.values[indexPath.row];
+        [self.delegate fieldValuesTableViewController:self didDeselectedValue:fieldValue];
     }
 }
 

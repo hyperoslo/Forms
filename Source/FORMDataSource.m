@@ -5,6 +5,7 @@
 
 #import "FORMTextFieldCell.h"
 #import "FORMSelectFieldCell.h"
+#import "FORMMultiselectFieldCell.h"
 #import "FORMDateFieldCell.h"
 #import "FORMButtonFieldCell.h"
 #import "FORMFieldValue.h"
@@ -79,6 +80,9 @@ static NSString * const FORMDynamicRemoveFieldID = @"remove";
 
     [collectionView registerClass:[FORMSelectFieldCell class]
        forCellWithReuseIdentifier:FORMSelectFormFieldCellIdentifier];
+    
+    [collectionView registerClass:[FORMMultiselectFieldCell class]
+       forCellWithReuseIdentifier:FORMMultiselectFormFieldCellIdentifier];
 
     [collectionView registerClass:[FORMDateFieldCell class]
        forCellWithReuseIdentifier:FORMDateFormFieldCellIdentifier];
@@ -156,6 +160,8 @@ static NSString * const FORMDynamicRemoveFieldID = @"remove";
             identifier = FORMDateFormFieldCellIdentifier;
             break;
         case FORMFieldTypeMultiselect:
+            identifier = FORMMultiselectFormFieldCellIdentifier;
+            break;
         case FORMFieldTypeSelect:
             identifier = FORMSelectFormFieldCellIdentifier;
             break;

@@ -89,7 +89,8 @@ static NSString * const FORMFormatterSelector = @"formatString:reverse:";
             [values addObject:fieldValue];
         }
     }
-
+    
+   
     _values = values;
 
     _value = [dictionary andy_valueForKey:@"value"];
@@ -97,6 +98,10 @@ static NSString * const FORMFormatterSelector = @"formatString:reverse:";
     if (_value && _type == FORMFieldTypeDate) {
         _value = [dateFormatter dateFromString:_value];
     }
+    
+    NSMutableArray *selectedValues = [NSMutableArray new];
+    _selectedValues = selectedValues;
+
 
     return self;
 }
