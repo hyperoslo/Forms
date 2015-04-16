@@ -27,15 +27,13 @@
 
 #pragma mark - Deallocation
 
-- (void)dealloc
-{
+- (void)dealloc {
     [self hyp_removeKeyboardToolbarObservers];
 }
 
 #pragma mark - Initialization
 
-- (instancetype)initWithJSON:(NSArray *)JSON andInitialValues:(NSDictionary *)initialValues
-{
+- (instancetype)initWithJSON:(NSArray *)JSON andInitialValues:(NSDictionary *)initialValues {
     FORMLayout *layout = [[FORMLayout alloc] init];
     self = [super initWithCollectionViewLayout:layout];
     if (!self) return nil;
@@ -58,8 +56,7 @@
 
 #pragma mark - Getters
 
-- (FORMDataSource *)dataSource
-{
+- (FORMDataSource *)dataSource {
     if (_dataSource) return _dataSource;
 
     _dataSource = [[FORMDataSource alloc] initWithJSON:self.JSON
@@ -101,8 +98,7 @@
     return _dataSource;
 }
 
-- (HYPImagePicker *)imagePicker
-{
+- (HYPImagePicker *)imagePicker {
     if (_imagePicker) return _imagePicker;
 
     _imagePicker = [[HYPImagePicker alloc] initForViewController:self
@@ -114,8 +110,7 @@
 
 #pragma mark - View Lifecycle
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -127,8 +122,7 @@
     self.collectionView.dataSource = self.dataSource;
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
     UIBarButtonItem *validateButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Validate"
@@ -169,14 +163,12 @@
 
 #pragma mark - UICollectionViewDelegate
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     FORMField *field = [self.dataSource fieldAtIndexPath:indexPath];
     return (field.type == FORMFieldTypeCustom && [field.typeString isEqual:@"image"]);
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     FORMField *field = [self.dataSource fieldAtIndexPath:indexPath];
 
     if (field.type == FORMFieldTypeCustom && [field.typeString isEqual:@"image"]) {
@@ -186,16 +178,14 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return [self.dataSource sizeForFieldAtIndexPath:indexPath];
 }
 
 #pragma mark - Rotation Handling
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-                                duration:(NSTimeInterval)duration
-{
+                                duration:(NSTimeInterval)duration {
     [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
 
     [self.view endEditing:YES];
@@ -206,15 +196,13 @@
 #pragma mark - HYPImagePickerDelegate
 
 - (void)imagePicker:(HYPImagePicker *)imagePicker
-     didPickedImage:(UIImage *)image
-{
+     didPickedImage:(UIImage *)image {
     NSLog(@"picture gotten");
 }
 
 #pragma mark - Actions
 
-- (void)updateButtonAction
-{
+- (void)updateButtonAction {
     [self.dataSource reloadWithDictionary:@{@"first_name" : @"Hodo",
                                             @"salary_type" : @1,
                                             @"hourly_pay_level" : @1,
@@ -225,8 +213,7 @@
                                             }];
 }
 
-- (void)validateButtonAction
-{
+- (void)validateButtonAction {
     if ([self.dataSource isValid]) {
         [[[UIAlertView alloc] initWithTitle:@"Everything is valid, you get a candy!"
                                     message:nil
@@ -238,8 +225,7 @@
     }
 }
 
-- (void)readOnly:(UISwitch *)sender
-{
+- (void)readOnly:(UISwitch *)sender {
     FORMTarget *target;
 
     if (sender.isOn) {
