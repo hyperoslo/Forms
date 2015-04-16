@@ -22,8 +22,7 @@
 
 #pragma mark - Getters
 
-- (FORMDataSource *)dataSource
-{
+- (FORMDataSource *)dataSource {
     if (_dataSource) return _dataSource;
 
     _dataSource = [[FORMDataSource alloc] initWithJSON:self.JSON
@@ -59,8 +58,7 @@
 #pragma mark - View Lifecycle
 
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     FORMLayout *layout = [FORMLayout new];
@@ -75,15 +73,13 @@
 
 #pragma mark - UICollectionViewDelegate
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return [self.dataSource sizeForFieldAtIndexPath:indexPath];
 }
 
 #pragma mark - FORMBaseFieldCellDelegate
 
-- (void)fieldCell:(UICollectionViewCell *)fieldCell updatedWithField:(FORMField *)field
-{
+- (void)fieldCell:(UICollectionViewCell *)fieldCell updatedWithField:(FORMField *)field {
     if (self.emailTextField.valid && self.passwordTextField.valid) {
         FORMButtonFieldCell *cell = (FORMButtonFieldCell *)[self.collectionView cellForItemAtIndexPath:self.indexPathButton];
         cell.disabled = NO;
@@ -98,8 +94,7 @@
 
 #pragma mark - Private methods
 
-- (void)checkButtonPressedWithField:(FORMField *)field
-{
+- (void)checkButtonPressedWithField:(FORMField *)field {
     if ([field.typeString isEqualToString:@"button"] && self.emailTextField.valid && self.passwordTextField.valid) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Hey" message:@"You just logged in! Congratulations" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *alertActionNice = [UIAlertAction actionWithTitle:@"NICE" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
