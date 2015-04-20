@@ -28,8 +28,8 @@
                                  @"end_date" : @"2017-10-31 23:00:00 +00:00",
                                  @"first_name" : @"Ola",
                                  @"last_name" : @"Nordman",
-                                 @"start_date" : @"2014-10-31 23:00:00 +00:00"
-                                 };
+                                 @"start_date" : @"2014-10-31 23:00:00 +00:00",
+                                 @"start_time" : @"2014-10-31 23:00:00 +00:00"};
 
     NSArray *JSON = [NSJSONSerialization JSONObjectWithContentsOfFile:@"forms.json"];
 
@@ -38,8 +38,8 @@
     UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:sampleController];
 
     controller.view.tintColor = [UIColor colorFromHex:@"5182AF"];
-    controller.navigationBarHidden = YES;
-
+    controller.navigationBar.translucent = NO;
+    
     self.window.rootViewController = controller;
 
     [self.window makeKeyAndVisible];

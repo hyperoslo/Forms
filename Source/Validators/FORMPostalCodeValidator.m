@@ -3,14 +3,13 @@
 
 @implementation FORMPostalCodeValidator
 
-- (FORMValidationResultType)validateFieldValue:(id)fieldValue
-{
+- (FORMValidationResultType)validateFieldValue:(id)fieldValue {
     BOOL postalCodeIsValid = ([[FORMPostalCodeManager sharedManager] validatePostalCode:fieldValue]);
 
     if (!postalCodeIsValid) {
         return FORMValidationResultTypeInvalidPostalCode;
     } else {
-        return FORMValidationResultTypePassed;
+        return FORMValidationResultTypeValid;
     }
 }
 

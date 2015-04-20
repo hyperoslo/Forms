@@ -10,8 +10,7 @@
 
 @implementation FORMPostalCodeManager
 
-+ (instancetype)sharedManager
-{
++ (instancetype)sharedManager {
     static FORMPostalCodeManager *_sharedManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -21,13 +20,13 @@
     return _sharedManager;
 }
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (!self) return nil;
 
     NSArray *JSON = [NSJSONSerialization JSONObjectWithContentsOfFile:@"postal_codes.json"
-                                                             inBundle:[NSBundle bundleForClass:[FORMPostalCodeManager class]]];
+                                                             inBundle:[NSBundle mainBundle]];
+
     NSMutableDictionary *mutableDictionary = [NSMutableDictionary new];
 
     for (NSDictionary *entry in JSON) {
@@ -39,13 +38,11 @@
     return self;
 }
 
-- (BOOL)validatePostalCode:(NSString *)postalCode
-{
+- (BOOL)validatePostalCode:(NSString *)postalCode {
     return (self.postalCodes[postalCode]) ? YES : NO;
 }
 
-- (NSString *)cityForPostalCode:(NSString *)postalCode
-{
+- (NSString *)cityForPostalCode:(NSString *)postalCode {
     return (self.postalCodes[postalCode]) ?: nil;
 }
 

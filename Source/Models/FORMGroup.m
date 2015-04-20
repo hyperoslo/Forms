@@ -22,12 +22,11 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
                           position:(NSInteger)position
                           disabled:(BOOL)disabled
-                 disabledFieldsIDs:(NSArray *)disabledFieldsIDs
-{
+                 disabledFieldsIDs:(NSArray *)disabledFieldsIDs {
     self = [super init];
     if (!self) return nil;
 
-    self.formID = [dictionary andy_valueForKey:@"id"];
+    self.groupID = [dictionary andy_valueForKey:@"id"];
     self.title = [dictionary andy_valueForKey:@"title"];
     self.position = @(position);
 
@@ -55,8 +54,7 @@
     return self;
 }
 
-- (NSArray *)targetsUsingArray:(NSArray *)array
-{
+- (NSArray *)targetsUsingArray:(NSArray *)array {
     NSMutableArray *targets = [NSMutableArray new];
 
     for (NSDictionary *targetDict in array) {
@@ -70,8 +68,7 @@
     return targets;
 }
 
-- (NSArray *)fields
-{
+- (NSArray *)fields {
     NSMutableArray *array = [NSMutableArray new];
 
     for (FORMSection *section in self.sections) {
@@ -81,8 +78,7 @@
     return array;
 }
 
-- (NSInteger)numberOfFields
-{
+- (NSInteger)numberOfFields {
     NSInteger count = 0;
 
     for (FORMSection *section in self.sections) {
@@ -92,8 +88,7 @@
     return count;
 }
 
-- (NSInteger)numberOfFields:(NSMutableDictionary *)deletedSections
-{
+- (NSInteger)numberOfFields:(NSMutableDictionary *)deletedSections {
     NSInteger count = 0;
 
     for (FORMSection *section in self.sections) {
@@ -105,8 +100,7 @@
     return count;
 }
 
-- (NSString *)description
-{
+- (NSString *)description {
     NSMutableArray *fields = [NSMutableArray new];
 
     for (FORMSection *section in self.sections) {
@@ -118,11 +112,10 @@
     }
 
     return [NSString stringWithFormat:@"\n — Group: %@ —\n title: %@\n position: %@\n shouldValidate: %@\n sections: %@\n",
-            self.formID, self.title, self.position, self.shouldValidate ? @"YES" : @"NO", fields];
+            self.groupID, self.title, self.position, self.shouldValidate ? @"YES" : @"NO", fields];
 }
 
-- (void)removeSection:(FORMSection *)section
-{
+- (void)removeSection:(FORMSection *)section {
     __block BOOL found = NO;
     __block NSInteger index = 0;
 
@@ -143,8 +136,7 @@
     [self resetSectionPositions];
 }
 
-- (void)resetSectionPositions
-{
+- (void)resetSectionPositions {
     [self.sections enumerateObjectsUsingBlock:^(FORMSection *section, NSUInteger idx, BOOL *stop) {
         section.position = @(idx);
     }];
