@@ -12,8 +12,7 @@
 
 @implementation DDMathEvaluator (FORM)
 
-+ (NSDictionary *)hyp_directoryFunctions
-{
++ (NSDictionary *)hyp_directoryFunctions {
     NSMutableDictionary *mutableDictionary = [NSMutableDictionary new];
 
     mutableDictionary[@"equals"] = ^ DDExpression* (NSArray *args, NSDictionary *variables, DDMathEvaluator *evaluator, NSError **error) {
@@ -28,8 +27,8 @@
         NSArray *arguments = [args subarrayWithRange:NSMakeRange(1, args.count-1)];
         NSNumber *isEqual = @YES;
         NSString *baseKey = [args[0] variable];
-        NSString *baseValue = (variables[baseKey]) ?: baseKey;
-        NSString *otherValue;
+        id baseValue = (variables[baseKey]) ?: baseKey;
+        id otherValue;
 
         for (DDExpression *expression in arguments) {
             if (![expression isKindOfClass:[_DDVariableExpression class]]) {
@@ -39,7 +38,7 @@
 
             otherValue = (variables[expression.variable]) ?: expression.variable;
 
-            if (![baseValue isEqualToString:otherValue]) {
+            if (![baseValue isEqual:otherValue]) {
                 isEqual = @NO;
                 break;
             }
@@ -59,7 +58,8 @@
         NSString *baseKey = [args[0] variable];
         NSString *baseValue = variables[baseKey];
         BOOL baseValueIsPresent = (baseValue || ![baseValue isKindOfClass:[NSNull class]]);
-        NSNumber *present = (baseValueIsPresent) ? @YES : @NO;
+        BOOL isEmptyString = ([baseValue isKindOfClass:[NSString class]] && [baseValue length] < 1);
+        NSNumber *present = (baseValueIsPresent && !isEmptyString) ? @YES : @NO;
 
         return [DDExpression numberExpressionWithNumber:present];
     };
@@ -75,7 +75,8 @@
         NSString *baseKey = [args[0] variable];
         NSString *baseValue = variables[baseKey];
         BOOL baseValueIsMissing = (!baseValue || [baseValue isKindOfClass:[NSNull class]]);
-        NSNumber *missing = (baseValueIsMissing) ? @YES : @NO;
+        BOOL isEmptyString = ([baseValue isKindOfClass:[NSString class]] && [baseValue length] < 1);
+        NSNumber *missing = (baseValueIsMissing || isEmptyString) ? @YES : @NO;
 
         return [DDExpression numberExpressionWithNumber:missing];
     };

@@ -14,13 +14,20 @@
 typedef void (^FORMConfigureCellBlock)(id cell,
                                        NSIndexPath *indexPath,
                                        FORMField *field);
+
 typedef void (^FORMConfigureHeaderViewBlock)(FORMGroupHeaderView *headerView,
                                              NSString *kind,
                                              NSIndexPath *indexPath,
-                                             FORMGroup *form);
+                                             FORMGroup *group);
+
+typedef UICollectionReusableView * (^FORMConfigureGroupHeaderForItemAtIndexPathBlock)(FORMGroup *group,
+                                                                                      UICollectionView *collectionView,
+                                                                                      NSIndexPath *indexPath);
+
 typedef UICollectionViewCell * (^FORMConfigureCellForItemAtIndexPathBlock)(FORMField *field,
                                                                            UICollectionView *collectionView,
                                                                            NSIndexPath *indexPath);
+
 typedef void (^FORMFieldFieldUpdatedBlock)(id cell,
                                            FORMField *field);
 
@@ -58,6 +65,12 @@ typedef void (^FORMFieldFieldUpdatedBlock)(id cell,
  * very useful when providing custom cells.
  */
 @property (nonatomic, copy) FORMConfigureCellForItemAtIndexPathBlock configureCellForItemAtIndexPathBlock;
+
+/*!
+ * Provides a configuration block to optionally return a group header for a specific @c NSIndexPath
+ */
+
+@property (nonatomic, copy) FORMConfigureGroupHeaderForItemAtIndexPathBlock configureGroupHeaderAtIndexPathBlock;
 
 /*!
  * Provides a block that gets called every time a field gets updated

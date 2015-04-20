@@ -8,8 +8,7 @@
 
 @implementation FORMTests
 
-- (void)testInitWithDictionary
-{
+- (void)testInitWithDictionary {
     FORMGroup *group = [[FORMGroup alloc] initWithDictionary:@{@"id": @"some_form",
                                                               @"title": @"Some form"}
                                                    position:0
@@ -17,7 +16,7 @@
                                           disabledFieldsIDs:nil];
 
     XCTAssertNotNil(group);
-    XCTAssertEqualObjects(group.formID, @"some_form");
+    XCTAssertEqualObjects(group.groupID, @"some_form");
     XCTAssertEqualObjects(group.title, @"Some form");
     XCTAssertEqualObjects(group.position, @0);
 
@@ -28,7 +27,7 @@
                                disabledFieldsIDs:nil];
 
     XCTAssertNotNil(group);
-    XCTAssertEqualObjects(group.formID, @"other_form");
+    XCTAssertEqualObjects(group.groupID, @"other_form");
     XCTAssertEqualObjects(group.title, @"Other form");
     XCTAssertEqualObjects(group.position, @1);
 }

@@ -1,7 +1,5 @@
 #import "FORMGroupHeaderView.h"
 
-#import "UIScreen+HYPLiveBounds.h"
-
 @interface FORMGroupHeaderView ()
 
 @property (nonatomic) UIView *contentView;
@@ -12,8 +10,7 @@
 
 #pragma mark - Initializers
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (!self) return nil;
 
@@ -37,14 +34,16 @@
 
 #pragma mark - Getters
 
-- (UILabel *)headerLabel
-{
+- (CGRect)headerLabelFrame {
+    CGFloat width = CGRectGetWidth(self.bounds) - (FORMTitleMargin * 2);
+    
+    return CGRectMake(FORMTitleMargin, 0.0f, width, FORMHeaderHeight);
+}
+
+- (UILabel *)headerLabel {
     if (_headerLabel) return _headerLabel;
 
-    CGRect bounds = [[UIScreen mainScreen] bounds];
-    CGFloat width = CGRectGetWidth(bounds) - (FORMTitleMargin * 2);
-
-    _headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(FORMTitleMargin, 0.0f, width, FORMHeaderHeight)];
+    _headerLabel = [[UILabel alloc] initWithFrame:[self headerLabelFrame]];
     _headerLabel.backgroundColor = [UIColor clearColor];
     _headerLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 
@@ -53,8 +52,7 @@
 
 #pragma mark - Actions
 
-- (void)headerTappedAction
-{
+- (void)headerTappedAction {
     if ([self.delegate respondsToSelector:@selector(groupHeaderViewWasPressed:)]) {
         [self.delegate groupHeaderViewWasPressed:self];
     }
@@ -62,18 +60,15 @@
 
 #pragma mark - Styling
 
-- (void)setHeaderLabelFont:(UIFont *)headerLabelFont
-{
+- (void)setHeaderLabelFont:(UIFont *)headerLabelFont {
     self.headerLabel.font = headerLabelFont;
 }
 
-- (void)setHeaderLabelTextColor:(UIColor *)headerLabelTextColor
-{
+- (void)setHeaderLabelTextColor:(UIColor *)headerLabelTextColor {
     self.headerLabel.textColor = headerLabelTextColor;
 }
 
-- (void)setHeaderBackgroundColor:(UIColor *)backgroundColor
-{
+- (void)setHeaderBackgroundColor:(UIColor *)backgroundColor {
     self.backgroundColor = backgroundColor;
 }
 

@@ -17,8 +17,7 @@ static const CGFloat FORMFieldValuesCellHeight = 44.0f;
 
 #pragma mark - Getters
 
-- (FORMFieldValuesTableViewHeader *)headerView
-{
+- (FORMFieldValuesTableViewHeader *)headerView {
 	if (_headerView) return _headerView;
 
     _headerView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:FORMFieldValuesTableViewHeaderIdentifier];
@@ -28,21 +27,22 @@ static const CGFloat FORMFieldValuesCellHeight = 44.0f;
 
 #pragma mark - Setters
 
-- (void)setField:(FORMField *)field
-{
+- (void)setField:(FORMField *)field {
     _field = field;
 
     self.values = [NSArray arrayWithArray:field.values];
-
-    self.tableView.allowsMultipleSelection = (field.type == FORMFieldTypeMultiselect);
+    
+    if (field.type == FORMFieldTypeMultiselect) {
+        self.tableView.allowsMultipleSelection = YES;
+        self.field.selectedValues = field.selectedValues;
+    }
 
     [self.tableView reloadData];
 }
 
 #pragma mark - View Lifecycle
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     self.clearsSelectionOnViewWillAppear = NO;
@@ -55,15 +55,13 @@ static const CGFloat FORMFieldValuesCellHeight = 44.0f;
 
 #pragma mark - TableViewDelegate
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     self.headerView.field = self.field;
 
     return self.headerView;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (self.customHeight) {
         return self.customHeight;
     } else {
@@ -73,13 +71,11 @@ static const CGFloat FORMFieldValuesCellHeight = 44.0f;
 
 #pragma mark - Table View Data Source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.values.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FORMFieldValueCell *cell = [tableView dequeueReusableCellWithIdentifier:FORMFieldValueCellIdentifer];
 
     FORMFieldValue *fieldValue = self.values[indexPath.row];
@@ -92,8 +88,18 @@ static const CGFloat FORMFieldValuesCellHeight = 44.0f;
             [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
         }
     } else {
-        if ([fieldValue identifierIsEqualTo:self.field.value]) {
-            [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        if (self.field.type == FORMFieldTypeMultiselect)
+        {
+            if ([(NSArray*)self.field.selectedValues indexOfObject:self.field.title]!= NSNotFound)
+            {
+                 [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+            }
+        }
+        else
+        {
+            if ([fieldValue identifierIsEqualTo:self.field.value]) {
+                [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+            }
         }
     }
 
@@ -105,6 +111,14 @@ static const CGFloat FORMFieldValuesCellHeight = 44.0f;
     if ([self.delegate respondsToSelector:@selector(fieldValuesTableViewController:didSelectedValue:)]) {
         FORMFieldValue *fieldValue = self.values[indexPath.row];
         [self.delegate fieldValuesTableViewController:self didSelectedValue:fieldValue];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.delegate respondsToSelector:@selector(fieldValuesTableViewController:didDeselectedValue:)]) {
+        FORMFieldValue *fieldValue = self.values[indexPath.row];
+        [self.delegate fieldValuesTableViewController:self didDeselectedValue:fieldValue];
     }
 }
 

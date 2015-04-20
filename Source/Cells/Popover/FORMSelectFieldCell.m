@@ -12,21 +12,19 @@ static const CGSize FORMSelectPopoverSize = { .width = 320.0f, .height = 308.0f 
 
 #pragma mark - Initializers
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame contentViewController:self.fieldValuesController
                  andContentSize:FORMSelectPopoverSize];
     if (!self) return nil;
 
-    self.iconImageView.image = [UIImage imageNamed:@"ic_mini_arrow_down"];
+    self.iconImageView.image = [UIImage imageNamed:@"Form.bundle/arrow_down"];
 
     return self;
 }
 
 #pragma mark - Getters
 
-- (FORMFieldValuesTableViewController *)fieldValuesController
-{
+- (FORMFieldValuesTableViewController *)fieldValuesController {
     if (_fieldValuesController) return _fieldValuesController;
 
     _fieldValuesController = [FORMFieldValuesTableViewController new];
@@ -37,8 +35,7 @@ static const CGSize FORMSelectPopoverSize = { .width = 320.0f, .height = 308.0f 
 
 #pragma mark - FORMBaseFormFieldCell
 
-- (void)updateWithField:(FORMField *)field
-{
+- (void)updateWithField:(FORMField *)field {
     [super updateWithField:field];
 
     if (field.value) {
@@ -62,8 +59,7 @@ static const CGSize FORMSelectPopoverSize = { .width = 320.0f, .height = 308.0f 
 
 #pragma mark - FORMPopoverFormFieldCell
 
-- (void)updateContentViewController:(UIViewController *)contentViewController withField:(FORMField *)field
-{
+- (void)updateContentViewController:(UIViewController *)contentViewController withField:(FORMField *)field {
     self.fieldValuesController.field = self.field;
 }
 

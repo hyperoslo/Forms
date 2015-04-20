@@ -10,8 +10,7 @@
 
 @implementation FORMValidator
 
-- (instancetype)initWithValidation:(FORMFieldValidation *)validation
-{
+- (instancetype)initWithValidation:(FORMFieldValidation *)validation {
     self = [super init];
     if (!self) return nil;
 
@@ -20,28 +19,52 @@
     return self;
 }
 
-- (FORMValidationResultType)validateFieldValue:(id)fieldValue
-{
-    if (!self.validation) return FORMValidationResultTypePassed;
+- (FORMValidationResultType)validateFieldValue:(id)fieldValue {
+    if (!self.validation) return FORMValidationResultTypeValid;
 
-    if (!fieldValue && !self.validation.isRequired) return YES;
+    if (!fieldValue) {
+        if (self.validation.isRequired) {
+            return FORMValidationResultTypeInvalidValueMissing;
+        } else {
+            return FORMValidationResultTypeValid;
+        }
+    }
 
     if ([fieldValue isKindOfClass:[FORMFieldValue class]]) {
-        return FORMValidationResultTypePassed;
+        return FORMValidationResultTypeValid;
     }
 
     if (self.validation.minimumLength > 0) {
         if (!fieldValue) {
-            return FORMValidationResultTypeValueMissing;
+            return FORMValidationResultTypeInvalidValueMissing;
         } else if ([fieldValue isKindOfClass:[NSString class]]) {
             BOOL fieldValueIsShorter = ([fieldValue length] < [self.validation.minimumLength unsignedIntegerValue]);
-            if (fieldValueIsShorter) return FORMValidationResultTypeTooShort;
+            if (fieldValueIsShorter) return FORMValidationResultTypeInvalidTooShort;
         }
     }
 
     if ([fieldValue isKindOfClass:[NSString class]] && self.validation.maximumLength) {
         BOOL fieldValueIsLonger = ([fieldValue length] > [self.validation.maximumLength unsignedIntegerValue]);
-        if (fieldValueIsLonger) return FORMValidationResultTypeTooLong;
+        if (fieldValueIsLonger) return FORMValidationResultTypeInvalidTooLong;
+    }
+
+    if (self.validation.minimumValue || self.validation.maximumValue) {
+        CGFloat value = 0.0f;
+        if ([fieldValue isKindOfClass:[NSNumber class]]) {
+            value = [fieldValue floatValue];
+        } else if ([fieldValue isKindOfClass:[NSString class]]) {
+            value = [fieldValue floatValue];
+        }
+
+        if (self.validation.minimumValue) {
+            BOOL valueIsLessThanMinimum = (value < [self.validation.minimumValue floatValue]);
+            if (valueIsLessThanMinimum) return FORMValidationResultTypeInvalidValue;
+        }
+
+        if (self.validation.maximumValue) {
+            BOOL valueIsMoreThanMaximum = (value > [self.validation.maximumValue floatValue]);
+            if (valueIsMoreThanMaximum) return FORMValidationResultTypeInvalidValue;
+        }
     }
 
     if ([fieldValue isKindOfClass:[NSString class]] && self.validation.format) {
@@ -50,41 +73,39 @@
         }
     }
 
-    return FORMValidationResultTypePassed;
+    return FORMValidationResultTypeValid;
 }
 
-- (FORMValidationResultType)validateFieldValue:(id)fieldValue withDependentValue:(id)dependentValue withComparator:(NSString *)comparator
-{
+- (FORMValidationResultType)validateFieldValue:(id)fieldValue withDependentValue:(id)dependentValue withComparator:(NSString *)comparator {
   if ([fieldValue isKindOfClass:[NSDate class]]) {
     if ([comparator isEqualToString:@">"] && [fieldValue laterDate:dependentValue] == fieldValue) {
-      return FORMValidationResultTypePassed;
+      return FORMValidationResultTypeValid;
     }
     else if ([comparator isEqualToString:@"<"] && [fieldValue earlierDate:dependentValue] == fieldValue) {
-      return FORMValidationResultTypePassed;
+      return FORMValidationResultTypeValid;
     }
   }
-  
+
   if ([comparator isEqualToString:@">"] && fieldValue > dependentValue) {
-    return FORMValidationResultTypePassed;
+    return FORMValidationResultTypeValid;
   }
   if ([comparator isEqualToString:@">="] && fieldValue >= dependentValue) {
-    return FORMValidationResultTypePassed;
+    return FORMValidationResultTypeValid;
   }
   if ([comparator isEqualToString:@"<"] && fieldValue < dependentValue) {
-    return FORMValidationResultTypePassed;
+    return FORMValidationResultTypeValid;
   }
   if ([comparator isEqualToString:@"<="] && fieldValue <= dependentValue) {
-    return FORMValidationResultTypePassed;
+    return FORMValidationResultTypeValid;
   }
   if ([comparator isEqualToString:@"=="] && fieldValue == dependentValue) {
-    return FORMValidationResultTypePassed;
+    return FORMValidationResultTypeValid;
   }
-  return FORMValidationResultTypeTooShort;
+  return FORMValidationResultTypeInvalidTooShort;
 }
 
 
-- (BOOL)validateString:(NSString *)fieldValue withFormat:(NSString *)format
-{
+- (BOOL)validateString:(NSString *)fieldValue withFormat:(NSString *)format {
     if (!fieldValue) return YES;
 
     NSError *error = NULL;
@@ -93,8 +114,7 @@
     return (numberOfMatches > 0);
 }
 
-+ (Class)classForKey:(NSString *)key andType:(NSString *)type
-{
++ (Class)classForKey:(NSString *)key andType:(NSString *)type {
     Class validatorClass = ([FORMClassFactory classFromString:key withSuffix:@"Validator"]);
     if (!validatorClass) {
         validatorClass = ([FORMClassFactory classFromString:type withSuffix:@"Validator"]);
