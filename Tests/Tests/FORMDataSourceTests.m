@@ -123,7 +123,7 @@
     XCTAssertNil(targetField.value);
 
     FORMTarget *updateTarget = [FORMTarget updateFieldTargetWithID:@"display_name"];
-    updateTarget.targetValue = @"John Hyperseed";
+    updateTarget.value = @"John Hyperseed";
 
     [dataSource processTargets:@[updateTarget]];
     XCTAssertEqualObjects(targetField.value, @"John Hyperseed");
@@ -163,7 +163,7 @@
     XCTAssertEqualObjects(ticketTypeField.value, @1);
 }
 
-- (void)testCondition {
+- (void)testTargetCondition {
     NSArray *JSON = [NSJSONSerialization JSONObjectWithContentsOfFile:@"forms.json"
                                                              inBundle:[NSBundle bundleForClass:[self class]]];
 
@@ -179,7 +179,7 @@
     XCTAssertEqualObjects(fieldValue.valueID, @0);
 
     FORMTarget *updateTarget = [FORMTarget updateFieldTargetWithID:@"display_name"];
-    updateTarget.targetValue = @"Mr.Melk";
+    updateTarget.value = @"Mr.Melk";
 
     updateTarget.condition = @"$username == 2";
     [dataSource processTargets:@[updateTarget]];
@@ -188,6 +188,61 @@
     updateTarget.condition = @"$username == 0";
     [dataSource processTargets:@[updateTarget]];
     XCTAssertEqualObjects(displayNameField.value, @"Mr.Melk");
+}
+
+- (void)testTargetValidation {
+    NSArray *JSON = [NSJSONSerialization JSONObjectWithContentsOfFile:@"forms.json"
+                                                             inBundle:[NSBundle bundleForClass:[self class]]];
+
+    FORMDataSource *dataSource = [[FORMDataSource alloc] initWithJSON:JSON
+                                                       collectionView:nil
+                                                               layout:nil
+                                                               values:nil
+                                                             disabled:YES];
+
+    FORMField *displayNameField = [dataSource fieldWithID:@"display_name" includingHiddenFields:YES];
+
+    FORMTarget *updateTarget = [FORMTarget updateFieldTargetWithID:@"display_name"];
+    updateTarget.value = @"Mr.Melk";
+    [dataSource processTargets:@[updateTarget]];
+    XCTAssertEqualObjects(displayNameField.value, @"Mr.Melk");
+
+    updateTarget.validation = [[FORMFieldValidation alloc]
+                                            initWithDictionary:@{@"required": @YES,
+                                                                 @"min_length": @1,
+                                                                 @"max_length": @4}];
+    [dataSource processTargets:@[updateTarget]];
+    [displayNameField validate];
+    XCTAssertFalse([displayNameField valid]);
+}
+
+- (void)testTargetFieldAttributes {
+    NSArray *JSON = [NSJSONSerialization JSONObjectWithContentsOfFile:@"forms.json"
+                                                             inBundle:[NSBundle bundleForClass:[self class]]];
+
+    FORMDataSource *dataSource = [[FORMDataSource alloc] initWithJSON:JSON
+                                                       collectionView:nil
+                                                               layout:nil
+                                                               values:nil
+                                                             disabled:YES];
+
+    FORMField *displayNameField = [dataSource fieldWithID:@"display_name" includingHiddenFields:YES];
+
+
+    NSDictionary *targetJSON = @{
+                                 @"id": @"display_name",
+                                 @"type": @"field",
+                                 @"action": @"update",
+                                 @"title": @"Nice display name",
+                                 @"info": @"Nice display name",
+                                 @"formula": @"first_name"};
+
+    FORMTarget *updateTarget = [[FORMTarget alloc] initWithDictionary:targetJSON];
+
+    [dataSource processTargets:@[updateTarget]];
+    XCTAssertEqualObjects(displayNameField.title, @"Nice display name");
+    XCTAssertEqualObjects(displayNameField.info, @"Nice display name");
+    XCTAssertEqualObjects(displayNameField.formula, @"first_name");
 }
 
 #pragma mark - reloadWithDictionary
