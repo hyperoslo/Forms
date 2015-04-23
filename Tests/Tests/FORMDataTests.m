@@ -643,7 +643,7 @@
 }
 
 - (void)testCleaningUpFieldValueWhenHiddingAndShowing {
-    NSArray *JSON = [NSJSONSerialization JSONObjectWithContentsOfFile:@"simple-field.json"
+    NSArray *JSON = [NSJSONSerialization JSONObjectWithContentsOfFile:@"simple-text-field.json"
                                                              inBundle:[NSBundle bundleForClass:[self class]]];
 
     FORMData *formData = [[FORMData alloc] initWithJSON:JSON
@@ -685,6 +685,40 @@
     [formData showTargets:@[target]];
 
     XCTAssertEqual(formData.values.count, 2);
+}
+
+- (void)testCleaningUpSelectFieldWhenHiddingAndShowing {
+    NSArray *JSON = [NSJSONSerialization JSONObjectWithContentsOfFile:@"default-values.json"
+                                                             inBundle:[NSBundle bundleForClass:[self class]]];
+
+    FORMData *formData = [[FORMData alloc] initWithJSON:JSON
+                                          initialValues:nil
+                                       disabledFieldIDs:nil
+                                               disabled:NO];
+
+    XCTAssertEqualObjects(formData.values[@"contract_type"], @0);
+
+    FORMTarget *target = [FORMTarget hideFieldTargetWithID:@"contract_type"];
+    [formData hideTargets:@[target]];
+
+    XCTAssertEqual(formData.values.count, 0);
+
+    target = [FORMTarget showFieldTargetWithID:@"contract_type"];
+    [formData showTargets:@[target]];
+
+    XCTAssertEqualObjects(formData.values[@"contract_type"], @0);
+}
+
+- (void)testInitializatingAFieldWithAValueInTheJSON {
+    NSArray *JSON = [NSJSONSerialization JSONObjectWithContentsOfFile:@"simple-text-field.json"
+                                                             inBundle:[NSBundle bundleForClass:[self class]]];
+
+    FORMData *formData = [[FORMData alloc] initWithJSON:JSON
+                                          initialValues:nil
+                                       disabledFieldIDs:nil
+                                               disabled:NO];
+
+    XCTAssertEqualObjects(formData.values[@"textie"], @"1");
 }
 
 @end

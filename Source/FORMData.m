@@ -220,6 +220,8 @@
                 } else {
                     field.value = [initialValues andy_valueForKey:field.fieldID];
                 }
+            } else if (field.value) {
+                self.values[field.fieldID] = field.value;
             }
 
             for (FORMFieldValue *fieldValue in field.values) {
@@ -1195,12 +1197,20 @@ includingHiddenFields:(BOOL)includingHiddenFields
 - (NSString *)transformDynamicIndexString:(NSString *)string
                                 withIndex:(long)index {
     return [string stringByReplacingOccurrencesOfString:@":index"
-                                               withString:[NSString stringWithFormat:@"%ld", (long)index]];
+                                             withString:[NSString stringWithFormat:@"%ld", (long)index]];
 }
 
 - (void)updateValuesFromFields:(NSArray *)fields {
     for (FORMField *field in fields) {
-        [self.values andy_setValue:field.value forKey:field.fieldID];
+        id value;
+
+        if ([field.value isKindOfClass:[FORMFieldValue class]]) {
+            value = [field.value valueID];
+        } else {
+            value = field.value;
+        }
+
+        [self.values andy_setValue:value forKey:field.fieldID];
     }
 }
 
