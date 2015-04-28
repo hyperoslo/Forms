@@ -22,9 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
       FORMDefaultStyle.applyStyle()
 
-      self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-      self.window?.rootViewController = rootViewController
-      self.window?.makeKeyAndVisible()
+      window = UIWindow(frame: UIScreen.mainScreen().bounds)
+      window?.rootViewController = rootViewController
+      window?.makeKeyAndVisible()
     }
 
     return true
