@@ -130,21 +130,20 @@ UIPopoverControllerDelegate, FORMFieldValuesTableViewControllerDelegate>
 }
 
 - (UIImage *)fieldIcon {
-    NSBundle *bundle = [NSBundle bundleForClass:self.class];
-    UITraitCollection *trait = [UITraitCollection traitCollectionWithDisplayScale:2.0];
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSURL *url = [bundle URLForResource:@"Form" withExtension:@"bundle"];
+    NSBundle *imageBundle = [NSBundle bundleWithURL:url];
 
     switch (self.field.type) {
         case FORMFieldTypeDate:
-        case FORMFieldTypeDateTime:
-            return [UIImage imageNamed:@"calendar"
-                                  inBundle:bundle
-             compatibleWithTraitCollection:trait];
-            break;
-        case FORMFieldTypeTime:
-            return [UIImage imageNamed:@"clock"
-                              inBundle:bundle
-         compatibleWithTraitCollection:trait];
-            break;
+        case FORMFieldTypeDateTime: {
+            NSString *path = [imageBundle pathForResource:@"calendar" ofType:@"png"];
+            return [UIImage imageWithContentsOfFile:path];
+        } break;
+        case FORMFieldTypeTime: {
+            NSString *path = [imageBundle pathForResource:@"clock" ofType:@"png"];
+            return [UIImage imageWithContentsOfFile:path];
+        } break;
         default:
             return nil;
             break;
