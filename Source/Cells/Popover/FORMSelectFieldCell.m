@@ -17,11 +17,12 @@ static const CGSize FORMSelectPopoverSize = { .width = 320.0f, .height = 308.0f 
                  andContentSize:FORMSelectPopoverSize];
     if (!self) return nil;
 
-    NSBundle *bundle = [NSBundle bundleForClass:self.class];
-    UITraitCollection *trait = [UITraitCollection traitCollectionWithDisplayScale:2.0];
-    self.iconImageView.image = [UIImage imageNamed:@"arrow_down"
-                                          inBundle:bundle
-                     compatibleWithTraitCollection:trait];
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSURL *url = [bundle URLForResource:@"Form" withExtension:@"bundle"];
+    NSBundle *imageBundle = [NSBundle bundleWithURL:url];
+    NSString *path = [imageBundle pathForResource:@"arrow_down" ofType:@"png"];
+    self.iconImageView.image = [UIImage imageWithContentsOfFile:path];
+
     return self;
 }
 
