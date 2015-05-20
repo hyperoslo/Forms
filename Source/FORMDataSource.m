@@ -307,6 +307,8 @@ static const CGFloat FORMKeyboardAnimationDuration = 0.3f;
 }
 
 - (void)disable {
+    self.formData.removedValues = nil;
+
     [self disable:YES];
 }
 
@@ -384,11 +386,11 @@ static const CGFloat FORMKeyboardAnimationDuration = 0.3f;
 }
 
 - (BOOL)isDisabled {
-    return self.disabled;
+    return _disabled;
 }
 
 - (BOOL)isEnabled {
-    return !self.disabled;
+    return !_disabled;
 }
 
 - (void)reloadWithDictionary:(NSDictionary *)dictionary {
@@ -799,6 +801,7 @@ static const CGFloat FORMKeyboardAnimationDuration = 0.3f;
     }
 
     self.formData.values = nil;
+    self.formData.removedValues = nil;
 
     [self.collapsedGroups removeAllObjects];
     [self.formData.hiddenFieldsAndFieldIDsDictionary removeAllObjects];

@@ -95,7 +95,7 @@ static NSString * const FORMFormatterSelector = @"formatString:reverse:";
                     resultValue = [fieldValue stringValue];
                 }
             } break;
-                
+
             case FORMFieldTypeDateTime:
             case FORMFieldTypeTime:
             case FORMFieldTypeDate: {
@@ -105,7 +105,7 @@ static NSString * const FORMFormatterSelector = @"formatString:reverse:";
                     resultValue = [formatter dateFromString:fieldValue];
                 }
             } break;
-                
+
             case FORMFieldTypeText:
             case FORMFieldTypeSelect:
             case FORMFieldTypeButton:
