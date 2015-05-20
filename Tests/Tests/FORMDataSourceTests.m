@@ -123,7 +123,7 @@
     XCTAssertNil(targetField.value);
 
     FORMTarget *updateTarget = [FORMTarget updateFieldTargetWithID:@"display_name"];
-    updateTarget.targetValue = @"John Hyperseed";
+    updateTarget.value = @"John Hyperseed";
 
     [dataSource processTargets:@[updateTarget]];
     XCTAssertEqualObjects(targetField.value, @"John Hyperseed");
@@ -179,7 +179,7 @@
     XCTAssertEqualObjects(fieldValue.valueID, @0);
 
     FORMTarget *updateTarget = [FORMTarget updateFieldTargetWithID:@"display_name"];
-    updateTarget.targetValue = @"Mr.Melk";
+    updateTarget.value = @"Mr.Melk";
 
     updateTarget.condition = @"$username == 2";
     [dataSource processTargets:@[updateTarget]];
@@ -203,7 +203,7 @@
     FORMField *displayNameField = [dataSource fieldWithID:@"display_name" includingHiddenFields:YES];
 
     FORMTarget *updateTarget = [FORMTarget updateFieldTargetWithID:@"display_name"];
-    updateTarget.targetValue = @"Mr.Melk";
+    updateTarget.value = @"Mr.Melk";
     [dataSource processTargets:@[updateTarget]];
     XCTAssertEqualObjects(displayNameField.value, @"Mr.Melk");
 
@@ -911,6 +911,28 @@
 
     XCTAssertEqualObjects(priceTarget.targetID, @"tickets[0].total");
     XCTAssertEqualObjects(totalField.formula, @"tickets[0].quantity * tickets[0].price");
+    XCTAssertEqualObjects(totalField.value, @"300");
+
+    addField = [dataSource fieldWithID:@"tickets.add" includingHiddenFields:NO];
+    XCTAssertNotNil(addField);
+
+    // Second add
+
+    [dataSource fieldCell:nil updatedWithField:addField];
+
+    priceField = [dataSource fieldWithID:@"tickets[1].price" includingHiddenFields:NO];
+    XCTAssertNotNil(priceField);
+    priceTarget = [[priceField targets] firstObject];
+    quantityField = [dataSource fieldWithID:@"tickets[1].quantity" includingHiddenFields:NO];
+    XCTAssertNotNil(quantityField);
+    totalField = [dataSource fieldWithID:@"tickets[1].total" includingHiddenFields:NO];
+    XCTAssertNotNil(totalField);
+
+    [dataSource reloadWithDictionary:@{@"tickets[1].price" : @100,
+                                       @"tickets[1].quantity" : @3}];
+
+    XCTAssertEqualObjects(priceTarget.targetID, @"tickets[1].total");
+    XCTAssertEqualObjects(totalField.formula, @"tickets[1].quantity * tickets[1].price");
     XCTAssertEqualObjects(totalField.value, @"300");
 }
 
