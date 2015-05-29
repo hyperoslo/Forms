@@ -11,12 +11,7 @@
 
 #import "NSDictionary+ANDYSafeValue.h"
 #import "NSJSONSerialization+ANDYJSONFile.h"
-
-@interface FORMData (FORMDataTests)
-
-- (BOOL)evaluateCondition:(NSString *)condition;
-
-@end
+#import "NSString+FORMCondition.h"
 
 @interface FORMDataTests : XCTestCase
 
@@ -261,7 +256,7 @@
     FORMField *firstNameField = [dataSource fieldWithID:@"first_name" includingHiddenFields:NO];
     XCTAssertNotNil(firstNameField);
     XCTAssertEqualObjects(firstNameField.fieldID, @"first_name");
-    XCTAssertEqualObjects(firstNameField.value, @"Elvis");
+    XCTAssertEqualObjects(firstNameField.fieldValue.value, @"Elvis");
 
     FORMField *startDateField = [dataSource fieldWithID:@"start_date" includingHiddenFields:NO];
     XCTAssertNotNil(startDateField);
@@ -424,23 +419,23 @@
 
     FORMField *field = [formData fieldWithID:@"companies[0].name" includingHiddenFields:NO];
     XCTAssertNotNil(field);
-    XCTAssertEqualObjects(field.value, @"Facebook");
+    XCTAssertEqualObjects(field.fieldValue.value, @"Facebook");
 
     field = [formData fieldWithID:@"companies[0].phone_number" includingHiddenFields:NO];
     XCTAssertNotNil(field);
-    XCTAssertEqualObjects(field.value, @"1222333");
+    XCTAssertEqualObjects(field.fieldValue.value, @"1222333");
 
     field = [formData fieldWithID:@"companies[1].name" includingHiddenFields:NO];
     XCTAssertNotNil(field);
-    XCTAssertEqualObjects(field.value, @"Google");
+    XCTAssertEqualObjects(field.fieldValue.value, @"Google");
 
     field = [formData fieldWithID:@"companies[1].phone_number" includingHiddenFields:NO];
     XCTAssertNotNil(field);
-    XCTAssertNil(field.value);
+    XCTAssertNil(field.fieldValue.value);
 
     field = [formData fieldWithID:@"email" includingHiddenFields:NO];
     XCTAssertNotNil(field);
-    XCTAssertEqualObjects(field.value, @"hi@there.com");
+    XCTAssertEqualObjects(field.fieldValue.value, @"hi@there.com");
 }
 
 - (void)testRemovedValuesWhenRemovingDynamicSection {
@@ -705,20 +700,21 @@
                                        disabledFieldIDs:nil
                                                disabled:NO];
 
-    XCTAssertTrue([formData evaluateCondition:@"present($first_name)"]);
-    XCTAssertTrue([formData evaluateCondition:@"present($last_name)"]);
-    XCTAssertFalse([formData evaluateCondition:@"present($display_name)"]);
+    NSError *error = nil;
+    XCTAssertTrue([@"present($first_name)" evaluateWithValues:formData.values error:&error]);
+    XCTAssertTrue([@"present($last_name)" evaluateWithValues:formData.values error:&error]);
+    XCTAssertFalse([@"present($display_name)" evaluateWithValues:formData.values error:&error]);
 
-    XCTAssertFalse([formData evaluateCondition:@"missing($first_name)"]);
-    XCTAssertFalse([formData evaluateCondition:@"missing($last_name)"]);
-    XCTAssertTrue([formData evaluateCondition:@"missing($display_name)"]);
+    XCTAssertFalse([@"missing($first_name)" evaluateWithValues:formData.values error:&error]);
+    XCTAssertFalse([@"missing($last_name)" evaluateWithValues:formData.values error:&error]);
+    XCTAssertTrue([@"missing($display_name)" evaluateWithValues:formData.values error:&error]);
 
-    XCTAssertFalse([formData evaluateCondition:@"equals($first_name, \"Claire\")"]);
-    XCTAssertTrue([formData evaluateCondition:@"equals($last_name, \"Underwood\")"]);
+    XCTAssertFalse([@"equals($first_name, \"Claire\")" evaluateWithValues:formData.values error:&error]);
+    XCTAssertTrue([@"equals($last_name, \"Underwood\")" evaluateWithValues:formData.values error:&error]);
 
-    XCTAssertFalse([formData evaluateCondition:@"equals($username, \"Francis\")"]);
-    XCTAssertFalse([formData evaluateCondition:@"equals($base_salary, 150)"]);
-    XCTAssertFalse([formData evaluateCondition:@"equals($bonus_enabled, 1)"]);
+    XCTAssertFalse([@"equals($username, \"Francis\")" evaluateWithValues:formData.values error:&error]);
+    XCTAssertFalse([@"equals($base_salary, 150)" evaluateWithValues:formData.values error:&error]);
+    XCTAssertFalse([@"equals($bonus_enabled, 1)" evaluateWithValues:formData.values error:&error]);
 }
 
 - (void)testCleaningUpFieldValueWhenHiddingAndShowing {
@@ -798,6 +794,18 @@
                                                disabled:NO];
 
     XCTAssertEqualObjects(formData.values[@"textie"], @"1");
+}
+
+- (void)testCrashingJSON {
+    NSArray *JSON = [NSJSONSerialization JSONObjectWithContentsOfFile:@"crashy.json"
+                                                             inBundle:[NSBundle bundleForClass:[self class]]];
+
+    FORMData *formData = [[FORMData alloc] initWithJSON:JSON
+                                          initialValues:nil
+                                       disabledFieldIDs:nil
+                                               disabled:NO];
+
+    XCTAssertEqual(formData.values.count, 1);
 }
 
 @end

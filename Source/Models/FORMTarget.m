@@ -1,7 +1,8 @@
 #import "FORMTarget.h"
 
-
+#import <objc/runtime.h>
 #import "NSDictionary+ANDYSafeValue.h"
+#import "FORMFieldValue.h"
 
 @interface FORMTarget ()
 @end
@@ -11,16 +12,48 @@
 #pragma mark - Initializers
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    self = [super init];
+    self = [super initWithDictionary:dictionary];
     if (!self) return nil;
 
-    _targetID = [dictionary andy_valueForKey:@"id"];
     self.typeString = [dictionary andy_valueForKey:@"type"];
     self.actionTypeString = [dictionary andy_valueForKey:@"action"];
-    self.targetValue = [dictionary andy_valueForKey:@"target_value"];
     self.condition = [dictionary andy_valueForKey:@"condition"];
 
     return self;
+}
+
+#pragma mark - Public Methods
+
+- (NSArray *)propertiesToUpdate {
+    NSMutableArray *values = [NSMutableArray new];
+
+    if (self.actionType == FORMTargetActionUpdate &&
+        self.type == FORMTargetTypeField) {
+
+        unsigned int numberOfProperties = 0;
+        objc_property_t *propertyArray = class_copyPropertyList([FORMFieldBase class], &numberOfProperties);
+
+        for (NSUInteger i = 0; i < numberOfProperties; i++) {
+            objc_property_t property = propertyArray[i];
+            NSString *propertyName = [[NSString alloc] initWithUTF8String:property_getName(property)];
+            if (![propertyName isEqualToString:@"value"]) {
+                id value = [self valueForKey:propertyName];
+                if (value != nil) {
+                    [values addObject:propertyName];
+                }
+            }
+        }
+    }
+
+    return [values copy];
+}
+
+- (FORMFieldValue *)fieldValueWithRawValue:(id)rawValue {
+    FORMFieldValue *fieldValue = [FORMFieldValue new];
+    fieldValue.fieldValueID = [NSString stringWithFormat:@"%@-value", self.fieldID];
+    fieldValue.value = rawValue;
+
+    return fieldValue;
 }
 
 + (FORMTarget *)fieldTargetWithID:(NSString *)targetID
@@ -41,7 +74,7 @@
                   typeString:(NSString *)typeString
             actionTypeString:(NSString *)actionTypeString {
     FORMTarget *target = [FORMTarget new];
-    target.targetID = targetID;
+    target.fieldID = targetID;
     target.typeString = typeString;
     target.actionTypeString = actionTypeString;
 
@@ -289,14 +322,14 @@
 }
 
 - (BOOL)isEqual:(FORMTarget *)object {
-    BOOL sameTargetID = (object.targetID == nil ||
-                         [object.targetID isEqualToString:self.targetID]);
+    BOOL sameTargetID = (object.fieldID == nil ||
+                         [object.fieldID isEqualToString:self.fieldID]);
 
     BOOL sameCondition = (object.condition == nil ||
                           [object.condition isEqualToString:self.condition]);
 
-    BOOL sameTargetValue = (object.targetValue == nil ||
-                            [object.targetValue isEqual:self.targetValue]);
+    BOOL sameTargetValue = (object.fieldValue == nil ||
+                            [object.fieldValue isEqual:self.fieldValue]);
 
     BOOL equal = (sameTargetID &&
                   object.actionType == self.actionType &&
@@ -304,8 +337,14 @@
                   sameCondition &&
                   sameTargetValue);
 
-    if (equal && self.value && object.value) {
-        equal = ([self.value identifierIsEqualTo:object.value.valueID]);
+    if (equal && self.fieldValue && object.fieldValue) {
+        if ([self.fieldValue isKindOfClass:[FORMFieldValue class]] &&
+            [object.fieldValue isKindOfClass:[FORMFieldValue class]]) {
+            FORMFieldValue *value = (FORMFieldValue *)self.fieldValue;
+            equal = ([value identifierIsEqualTo:[object.fieldValue fieldValueID]]);
+        } else {
+            equal = ([self.fieldValue identifierIsEqualTo:[object.fieldValue fieldValueID]]);
+        }
     }
 
     return equal;
@@ -313,7 +352,7 @@
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"\n — Target: %@ —\n value: %@\n type: %@\n action type: %@\n condition: %@\n",
-            self.targetID, self.targetValue, self.typeString, self.actionTypeString, self.condition];
+            self.fieldID, self.fieldValue.value, self.typeString, self.actionTypeString, self.condition];
 }
 
 @end
