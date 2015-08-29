@@ -177,15 +177,17 @@ static NSString * const FORMTooltipBackgroundColorKey = @"tooltip_background_col
 - (void)updateWithField:(FORMField *)field {
     [super updateWithField:field];
 
-    self.textField.hidden          = (field.sectionSeparator);
-    self.textField.inputValidator  = [self.field inputValidator];
-    self.textField.formatter       = [self.field formatter];
-    self.textField.typeString      = field.typeString;
-    self.textField.inputTypeString = field.inputTypeString;
-    self.textField.enabled         = !field.disabled;
-    self.textField.valid           = field.valid;
-    self.textField.rawText         = [self rawTextForField:field];
-    self.textField.info            = field.info;
+    self.textField.hidden            = (field.sectionSeparator);
+    self.textField.inputValidator    = [self.field inputValidator];
+    self.textField.formatter         = [self.field formatter];
+    self.textField.typeString        = field.typeString;
+    self.textField.inputTypeString   = field.inputTypeString;
+    self.textField.enabled           = !field.disabled;
+    self.textField.valid             = field.valid;
+    self.textField.decimalSeparator  = field.decimalSeparator;
+    self.textField.groupingSeparator = field.groupingSeparator;
+    self.textField.rawText           = [self rawTextForField:field];
+    self.textField.info              = field.info;
     self.textField.styles          = field.styles;
 }
 
@@ -213,10 +215,19 @@ static NSString * const FORMTooltipBackgroundColorKey = @"tooltip_background_col
 
                 if ([field.value isKindOfClass:[NSString class]]) {
                     NSMutableString *fieldValue = [field.value mutableCopy];
-                    [fieldValue replaceOccurrencesOfString:@","
+                    NSString *decimalSeparator = (field.decimalSeparator) ? field.decimalSeparator : @",";
+                    NSString *groupingSeparator = (field.groupingSeparator) ? field.groupingSeparator : @" ";
+                    
+                    [fieldValue replaceOccurrencesOfString:groupingSeparator
+                                                withString:@""
+                                                   options:NSCaseInsensitiveSearch
+                                                     range:NSMakeRange(0, [fieldValue length])];
+
+                    [fieldValue replaceOccurrencesOfString:decimalSeparator
                                                 withString:@"."
                                                    options:NSCaseInsensitiveSearch
                                                      range:NSMakeRange(0, [fieldValue length])];
+                    
                     NSNumberFormatter *formatter = [NSNumberFormatter new];
                     formatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US"];
                     value = [formatter numberFromString:fieldValue];

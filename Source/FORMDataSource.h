@@ -138,6 +138,11 @@ typedef void (^FORMFieldFieldUpdatedBlock)(id cell,
 - (void)reset;
 
 /*!
+ * Clears the values of all the fields without removing collapsed/hidden groups
+ */
+- (void)clear;
+
+/*!
  * Runs @c validate in all the fields, if the field is invalid it will show as red
  */
 - (void)validate;
