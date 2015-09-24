@@ -1,0 +1,64 @@
+[
+  {
+    "id": "group",
+    "title": "Group",
+    "sections": [
+      {
+	"id": "section",
+	"fields": [
+	  {
+	    "id": "price",
+	    "title": "Price",
+	    "type": "float",
+	    "value": 12.99,
+	    "positive_format": "#,###.00",
+	    "grouping_separator": ",",
+	    "decimal_separator": ".",
+	    "size": {
+	      "width": 25,
+	      "height": 1
+	    },
+	    "targets":[
+	      {
+		"id":"total",
+		"type":"field",
+		"action":"update"
+	      }
+	    ]
+	  },
+	  {
+	    "id": "quantity",
+	    "title": "Quantity",
+	    "type": "number",
+	    "value": 101,
+	    "size": {
+	      "width": 25,
+	      "height": 1
+	    },
+	    "targets":[
+	      {
+		"id":"total",
+		"type":"field",
+		"action":"update"
+	      }
+	    ]
+	  },
+	  {
+	    "id": "total",
+	    "title": "Total",
+	    "type": "float",
+	    "positive_format": "#,###.00",
+	    "grouping_separator": ",",
+	    "decimal_separator": ".",
+	    "size": {
+	      "width": 25,
+	      "height": 1
+	    },
+	    "disabled":true,
+	    "formula":"$price * $quantity"
+	  }
+	]
+      }
+    ]
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "id": "group",
+    "title": "Group",
+    "sections": [
+      {
+	"id": "section",
+	"fields": [
+	  {
+	    "id": "formatted_float",
+	    "title": "My Formatted Float",
+	    "type": "float",
+	    "decimal_separator": ".",
+	    "grouping_separator": ",",
+	    "value": "1,234.56",
+	    "size": {
+	      "width": 25,
+	      "height": 1
+	    }
+	  }
+	]
+      }
+    ]
+  }
+]

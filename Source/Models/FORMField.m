@@ -36,6 +36,18 @@ static NSString * const FORMFormatterSelector = @"formatString:reverse:";
     _type = [self typeFromTypeString:self.typeString];
     _inputTypeString = [dictionary andy_valueForKey:@"input_type"];
     _info = NSLocalizedString([dictionary andy_valueForKey:@"info"], nil);
+
+    _positiveFormat = [dictionary andy_valueForKey:@"positive_format"];
+    if (!_positiveFormat) {
+      _positiveFormat = @"###.##";
+    }
+    _negativeFormat = [dictionary andy_valueForKey:@"negative_format"];
+    _groupingSeparator = [dictionary andy_valueForKey:@"grouping_separator"];
+    _decimalSeparator = [dictionary andy_valueForKey:@"decimal_separator"];
+    if (!_decimalSeparator) {
+      _decimalSeparator = @",";
+    }
+
     NSNumber *width = [dictionary andy_valueForKey:@"size.width"] ?: @100;
     NSNumber *height = [dictionary andy_valueForKey:@"size.height"]?: @1;
     _size = CGSizeMake([width floatValue], [height floatValue]);
@@ -157,7 +169,8 @@ static NSString * const FORMFormatterSelector = @"formatString:reverse:";
     switch (self.type) {
         case FORMFieldTypeFloat:
             if ([self.value isKindOfClass:[NSString class]]) {
-                self.value = [self.value stringByReplacingOccurrencesOfString:@"," withString:@"."];
+                self.value = [self.value stringByReplacingOccurrencesOfString:@"." withString:self.decimalSeparator];
+                self.value = [self.value stringByReplacingOccurrencesOfString:self.groupingSeparator withString:@""];
             }
             return @([self.value floatValue]);
         case FORMFieldTypeNumber:

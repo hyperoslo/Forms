@@ -166,7 +166,6 @@ static const CGFloat FORMKeyboardAnimationDuration = 0.3f;
             identifier = [NSString stringWithFormat:@"%@-%@", FORMTextFieldCellIdentifier, field.fieldID];
             [collectionView registerClass:[FORMTextFieldCell class]
                forCellWithReuseIdentifier:identifier];
-
             break;
 
         case FORMFieldTypeCount:
@@ -867,6 +866,19 @@ static const CGFloat FORMKeyboardAnimationDuration = 0.3f;
     [self.collapsedGroups removeAllObjects];
     [self.formData.hiddenFieldsAndFieldIDsDictionary removeAllObjects];
     [self.formData.hiddenSections removeAllObjects];
+    [self.collectionView reloadData];
+}
+
+- (void)clear {
+    for (FORMGroup *group in self.formData.groups) {
+        for (FORMField *field in group.fields) {
+            field.value = nil;
+        }
+    }
+
+    self.formData.values = nil;
+    self.formData.removedValues = nil;
+
     [self.collectionView reloadData];
 }
 

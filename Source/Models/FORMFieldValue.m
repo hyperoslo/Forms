@@ -15,6 +15,10 @@
     _info = NSLocalizedString([dictionary andy_valueForKey:@"info"], nil);
     _value = [dictionary andy_valueForKey:@"value"];
     _defaultValue = [[dictionary andy_valueForKey:@"default"] boolValue];
+    _positiveFormat = [dictionary andy_valueForKey:@"positive_format"];
+    _negativeFormat = [dictionary andy_valueForKey:@"negative_format"];
+    _groupingSeparator = [dictionary andy_valueForKey:@"grouping_separator"];
+    _decimalSeparator = [dictionary andy_valueForKey:@"decimal_separator"];
 
     NSMutableArray *targets = [NSMutableArray new];
 

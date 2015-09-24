@@ -9,11 +9,11 @@
     if (!valid) return valid;
 
     BOOL hasDelimiter = ([text hyp_containsString:@","] || [text hyp_containsString:@"."]);
-    BOOL stringIsNilOrComma = (!string || [string isEqualToString:@","]);
+    BOOL stringIsNilOrDelimiter = (!string || [string isEqualToString:@","] || [string isEqualToString:@"."]);
 
-    if (hasDelimiter && stringIsNilOrComma) return NO;
+    if (hasDelimiter && stringIsNilOrDelimiter) return NO;
 
-    NSCharacterSet *floatSet = [NSCharacterSet characterSetWithCharactersInString:@"1234567890,"];
+    NSCharacterSet *floatSet = [NSCharacterSet characterSetWithCharactersInString:@"1234567890,."];
     NSCharacterSet *stringSet = [NSCharacterSet characterSetWithCharactersInString:string];
 
     return [floatSet isSupersetOfSet:stringSet];

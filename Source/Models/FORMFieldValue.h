@@ -11,6 +11,10 @@
 @property (nonatomic) FORMField *field;
 @property (nonatomic) NSNumber *value;
 @property (nonatomic) BOOL defaultValue;
+@property (nonatomic) NSString *positiveFormat;
+@property (nonatomic) NSString *negativeFormat;
+@property (nonatomic) NSString *groupingSeparator;
+@property (nonatomic) NSString *decimalSeparator;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
