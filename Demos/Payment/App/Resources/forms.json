@@ -26,16 +26,22 @@
             "size":{
               "width":100,
               "height":1
+            },
+            "validations": {
+              "max_length": 16
             }
           },
           {
             "id":"expiration_date",
-            "title":"Expiration date",
+            "title":"Expiration date (MM/YY)",
             "type":"text",
             "input_type": "number",
             "size":{
-              "width":70,
+              "width":60,
               "height":1
+            },
+            "validations": {
+              "max_length": 4
             }
           },
           {
@@ -44,8 +50,11 @@
             "type":"number",
             "input_type": "number",
             "size":{
-              "width":30,
+              "width":40,
               "height":1
+            },
+            "validations": {
+              "max_length": 3
             }
           }
         ]

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1412DDAA1BB4227500036A92 /* FORMCardNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1412DDA91BB4227500036A92 /* FORMCardNumberFormatter.m */; settings = {ASSET_TAGS = (); }; };
+		1412DDAD1BB4246600036A92 /* FORMExpirationDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1412DDAC1BB4246600036A92 /* FORMExpirationDateFormatter.m */; settings = {ASSET_TAGS = (); }; };
 		147A13DF1B92BA8500E52F9C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 147A13D21B92BA8500E52F9C /* LaunchScreen.xib */; };
 		147A13E01B92BA8500E52F9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147A13D41B92BA8500E52F9C /* Images.xcassets */; };
 		147A13E21B92BA8500E52F9C /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147A13D71B92BA8500E52F9C /* AppController.swift */; };
@@ -17,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1412DDA81BB4227500036A92 /* FORMCardNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMCardNumberFormatter.h; sourceTree = "<group>"; };
+		1412DDA91BB4227500036A92 /* FORMCardNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMCardNumberFormatter.m; sourceTree = "<group>"; };
+		1412DDAB1BB4246600036A92 /* FORMExpirationDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMExpirationDateFormatter.h; sourceTree = "<group>"; };
+		1412DDAC1BB4246600036A92 /* FORMExpirationDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMExpirationDateFormatter.m; sourceTree = "<group>"; };
 		147A13A41B92B9E300E52F9C /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		147A13D31B92BA8500E52F9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		147A13D41B92BA8500E52F9C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -90,6 +96,10 @@
 				147A13D71B92BA8500E52F9C /* AppController.swift */,
 				147A13E51B92BABC00E52F9C /* RootController.swift */,
 				14B92ADE1BB419D700E75BCF /* App-Bridging-Header.h */,
+				1412DDA81BB4227500036A92 /* FORMCardNumberFormatter.h */,
+				1412DDA91BB4227500036A92 /* FORMCardNumberFormatter.m */,
+				1412DDAB1BB4246600036A92 /* FORMExpirationDateFormatter.h */,
+				1412DDAC1BB4246600036A92 /* FORMExpirationDateFormatter.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -237,6 +247,8 @@
 				147A13E21B92BA8500E52F9C /* AppController.swift in Sources */,
 				147A13E61B92BABC00E52F9C /* RootController.swift in Sources */,
 				14B92AE11BB419D800E75BCF /* FORMCustomStyle.m in Sources */,
+				1412DDAA1BB4227500036A92 /* FORMCardNumberFormatter.m in Sources */,
+				1412DDAD1BB4246600036A92 /* FORMExpirationDateFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
