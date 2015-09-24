@@ -16,6 +16,10 @@
             "size":{
               "width":100,
               "height":1
+            },
+            "validations": {
+              "format":"[\\w._%+-]+@[\\w.-]+\\.\\w{2,}",
+              "required": true
             }
           },
           {
@@ -28,7 +32,8 @@
               "height":1
             },
             "validations": {
-              "max_length": 16
+              "max_length": 16,
+              "required": true
             }
           },
           {
@@ -41,7 +46,8 @@
               "height":1
             },
             "validations": {
-              "max_length": 4
+              "max_length": 4,
+              "required": true
             }
           },
           {
@@ -54,7 +60,8 @@
               "height":1
             },
             "validations": {
-              "max_length": 3
+              "max_length": 3,
+              "required": true
             }
           },
           {

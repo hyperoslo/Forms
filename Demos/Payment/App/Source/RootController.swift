@@ -16,6 +16,18 @@ class RootController: FORMViewController {
         super.viewDidLoad()
 
         self.collectionView?.backgroundColor = UIColor(hex: "122556")
+
+        let fieldUpdatedBlock: FORMFieldFieldUpdatedBlock =  { cell, field in
+            if field.fieldID == "pay_button" {
+                if self.dataSource.valid == false {
+                    self.dataSource.validate()
+                } else {
+                    print("Successfull values, process shopping cart!")
+                }
+            }
+        }
+
+        self.dataSource.fieldUpdatedBlock = fieldUpdatedBlock
     }
 
     // MARK: CustomFieldDelegate
