@@ -25,11 +25,10 @@
     [[FORMButtonFieldCell appearance] setBackgroundColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
     [[FORMButtonFieldCell appearance] setTitleLabelFont:[UIFont fontWithName:@"Futura-Medium" size:16.0]];
     [[FORMButtonFieldCell appearance] setBorderWidth:1.0f];
-    [[FORMButtonFieldCell appearance] setCornerRadius:5.0f];
-    [[FORMButtonFieldCell appearance] setHighlightedTitleColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
-    [[FORMButtonFieldCell appearance] setBorderColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
-    [[FORMButtonFieldCell appearance] setHighlightedBackgroundColor:[UIColor whiteColor]];
+    [[FORMButtonFieldCell appearance] setCornerRadius:20.0f];
     [[FORMButtonFieldCell appearance] setTitleColor:[UIColor whiteColor]];
+    [[FORMButtonFieldCell appearance] setHighlightedTitleColor:[UIColor whiteColor]];
+    [[FORMButtonFieldCell appearance] setHighlightedBackgroundColor:[[UIColor alloc] initWithHex:@"0079B9"]];
 
     [[FORMTextField appearance] setFont:[UIFont fontWithName:@"Futura-Medium" size:15.0]];
     [[FORMTextField appearance] setTextColor:[[UIColor alloc] initWithHex:@"000000"]];

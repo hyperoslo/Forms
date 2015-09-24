@@ -56,7 +56,16 @@
             "validations": {
               "max_length": 3
             }
-          }
+          },
+          {
+              "id":"pay_button",
+              "title":"Pay",
+              "type":"button",
+              "size":{
+                "width":100,
+                "height":1
+              }
+            }
         ]
       }
     ]
