@@ -21,8 +21,6 @@
 		144A28C21A99B2CF004A9086 /* FORMSelectFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 144A28621A99B2CF004A9086 /* FORMSelectFieldCell.m */; };
 		144A28C31A99B2CF004A9086 /* FORMTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 144A28651A99B2CF004A9086 /* FORMTextFieldCell.m */; };
 		144A28C51A99B2CF004A9086 /* FORMFieldValueLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 144A286A1A99B2CF004A9086 /* FORMFieldValueLabel.m */; };
-		144A28C61A99B2CF004A9086 /* FORMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 144A286C1A99B2CF004A9086 /* FORMTextField.m */; };
-		144A28C71A99B2CF004A9086 /* FORMTextFieldTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 144A286E1A99B2CF004A9086 /* FORMTextFieldTypeManager.m */; };
 		144A28CD1A99B2CF004A9086 /* FORMBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 144A287B1A99B2CF004A9086 /* FORMBackgroundView.m */; };
 		144A28CE1A99B2CF004A9086 /* FORMDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 144A287D1A99B2CF004A9086 /* FORMDataSource.m */; };
 		144A28CF1A99B2CF004A9086 /* FORMLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 144A287F1A99B2CF004A9086 /* FORMLayout.m */; };
@@ -115,10 +113,6 @@
 		144A28651A99B2CF004A9086 /* FORMTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMTextFieldCell.m; sourceTree = "<group>"; };
 		144A28691A99B2CF004A9086 /* FORMFieldValueLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMFieldValueLabel.h; sourceTree = "<group>"; };
 		144A286A1A99B2CF004A9086 /* FORMFieldValueLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMFieldValueLabel.m; sourceTree = "<group>"; };
-		144A286B1A99B2CF004A9086 /* FORMTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMTextField.h; sourceTree = "<group>"; };
-		144A286C1A99B2CF004A9086 /* FORMTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FORMTextField.m; sourceTree = "<group>"; };
-		144A286D1A99B2CF004A9086 /* FORMTextFieldTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMTextFieldTypeManager.h; sourceTree = "<group>"; };
-		144A286E1A99B2CF004A9086 /* FORMTextFieldTypeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMTextFieldTypeManager.m; sourceTree = "<group>"; };
 		144A287A1A99B2CF004A9086 /* FORMBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMBackgroundView.h; sourceTree = "<group>"; };
 		144A287B1A99B2CF004A9086 /* FORMBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMBackgroundView.m; sourceTree = "<group>"; };
 		144A287C1A99B2CF004A9086 /* FORMDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMDataSource.h; sourceTree = "<group>"; };
@@ -291,10 +285,6 @@
 			children = (
 				144A28691A99B2CF004A9086 /* FORMFieldValueLabel.h */,
 				144A286A1A99B2CF004A9086 /* FORMFieldValueLabel.m */,
-				144A286B1A99B2CF004A9086 /* FORMTextField.h */,
-				144A286C1A99B2CF004A9086 /* FORMTextField.m */,
-				144A286D1A99B2CF004A9086 /* FORMTextFieldTypeManager.h */,
-				144A286E1A99B2CF004A9086 /* FORMTextFieldTypeManager.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -696,7 +686,6 @@
 				149C29281A9A23DD00F88B91 /* FORMPopoverFieldCellTests.m in Sources */,
 				143D89451AEE46CC00F17FF5 /* FORMFieldValuesTableViewHeaderTests.swift in Sources */,
 				144A28DF1A99B2CF004A9086 /* FORMGroup.m in Sources */,
-				144A28C71A99B2CF004A9086 /* FORMTextFieldTypeManager.m in Sources */,
 				144A28CD1A99B2CF004A9086 /* FORMBackgroundView.m in Sources */,
 				149C29241A9A23DD00F88B91 /* FORMSectionTests.m in Sources */,
 				144A28EA1A99B2CF004A9086 /* FORMValidator.m in Sources */,
@@ -709,7 +698,6 @@
 				144A28D11A99B2CF004A9086 /* FORMGroupHeaderView.m in Sources */,
 				144A28BC1A99B2CF004A9086 /* FORMButtonFieldCell.m in Sources */,
 				144A28DC1A99B2CF004A9086 /* FORMField.m in Sources */,
-				144A28C61A99B2CF004A9086 /* FORMTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
