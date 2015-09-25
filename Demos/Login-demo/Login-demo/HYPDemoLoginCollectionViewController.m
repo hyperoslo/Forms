@@ -3,10 +3,10 @@
 #import "FORMButtonFieldCell.h"
 #import "FORMDataSource.h"
 #import "FORMLayout.h"
-#import "FORMTextField.h"
 
 #import "NSJSONSerialization+ANDYJSONFile.h"
-#import "UIColor+Hex.h"
+@import Hex;
+@import TextField;
 
 @interface HYPDemoLoginCollectionViewController ()
 
