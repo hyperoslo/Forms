@@ -1,6 +1,6 @@
 @import UIKit;
 
-#import "FORMTextField.h"
+@import TextField;
 
 #import "FORMField.h"
 

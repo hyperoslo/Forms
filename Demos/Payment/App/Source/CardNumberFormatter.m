@@ -1,6 +1,6 @@
-#import "FORMCardNumberFormatter.h"
+#import "CardNumberFormatter.h"
 
-@implementation FORMCardNumberFormatter
+@implementation CardNumberFormatter
 
 - (NSString *)formatString:(NSString *)string reverse:(BOOL)reverse {
     string = [super formatString:string reverse:reverse];
