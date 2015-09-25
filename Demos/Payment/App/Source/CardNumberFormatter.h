@@ -1,6 +1,6 @@
-@import Form;
+@import Formatter;
 
-@interface FORMCardNumberFormatter : FORMFormatter
+@interface CardNumberFormatter : Formatter
 
 - (NSString *)formatString:(NSString *)string reverse:(BOOL)reverse;
 
