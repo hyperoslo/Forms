@@ -1,6 +1,6 @@
-@import Form;
+@import Formatter;
 
-@interface FORMExpirationDateFormatter : FORMFormatter
+@interface ExpirationDateFormatter : Formatter
 
 - (NSString *)formatString:(NSString *)string reverse:(BOOL)reverse;
 
