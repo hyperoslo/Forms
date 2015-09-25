@@ -1,12 +1,12 @@
-#import "FORMExpirationDateFormatter.h"
+#import "CardNumberFormatter.h"
 
-@implementation FORMExpirationDateFormatter
+@implementation CardNumberFormatter
 
 - (NSString *)formatString:(NSString *)string reverse:(BOOL)reverse {
     string = [super formatString:string reverse:reverse];
     if (!string) return nil;
 
-    NSString *rawString = [string stringByReplacingOccurrencesOfString:@"/" withString:@""];
+    NSString *rawString = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
     if (reverse) return rawString;
 
     NSMutableString *mutableString = [NSMutableString new];
@@ -17,8 +17,8 @@
         characterString = [NSString stringWithFormat:@"%c", [rawString characterAtIndex:idx]];
         [mutableString appendString:characterString];
 
-        if (idx == 1) {
-            [mutableString appendString:@"/"];
+        if (idx != 0 && (idx + 1) % 4 == 0) {
+            [mutableString appendString:@" "];
         }
 
         ++idx;

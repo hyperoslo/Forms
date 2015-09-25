@@ -1,10 +1,12 @@
 PODS:
   - Form (3.7.0):
+    - Formatter (~> 0.1.0)
     - Hex (~> 2.0)
     - HYP8601 (~> 0.7.2)
     - HYPMathParser (~> 0.4.1)
     - HYPNorwegianAccountNumber (~> 1.2.1)
     - HYPNorwegianSSN (~> 1.10.2)
+    - InputValidator (~> 0.1.0)
     - NSDictionary-ANDYSafeValue (~> 0.3)
     - NSDictionary-HYPNestedAttributes (~> 0.4.1)
     - NSJSONSerialization-ANDYJSONFile (~> 1.1)
@@ -16,11 +18,13 @@ PODS:
     - NSString-ZENInflections (~> 1.2)
     - UIButton-ANDYHighlighted (~> 0.2.1)
     - UIViewController-HYPKeyboardToolbar (~> 0.1)
+  - Formatter (0.1.0)
   - Hex (2.0)
   - HYP8601 (0.7.2)
   - HYPMathParser (0.4.1)
   - HYPNorwegianAccountNumber (1.2.1)
   - HYPNorwegianSSN (1.10.2)
+  - InputValidator (0.1.0)
   - NSDictionary-ANDYSafeValue (0.3)
   - NSDictionary-HYPNestedAttributes (0.4.1):
     - NSString-HYPRelationshipParser (~> 0.4.1)
@@ -43,12 +47,14 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  Form: b160f17a52d0390f31d385132cc445e7c2eda49f
+  Form: 0cf5842f76516d96bb3bb40f437584d1023c00e9
+  Formatter: 16f32f45c91840c69fc66be28247e3803376c37d
   Hex: 1800bd20206b93b10422d2289baa3787698825ad
   HYP8601: 0118757c1332620748c75e7218e7b6b849686d06
   HYPMathParser: 146a4981427a0b46cc9af823b210bfefdf0a7107
   HYPNorwegianAccountNumber: b0062d7419d217123dff0ef04f1931ed5f1e3bbf
   HYPNorwegianSSN: 1eb54f1488ac24cdd7d0aee34e10d0f826c27fc1
+  InputValidator: 7175457f69bac87995d01895a9d0d90710787d62
   NSDictionary-ANDYSafeValue: c15ff39a6b1b82a52ea277c64520c7b574715afc
   NSDictionary-HYPNestedAttributes: 783d3adcf9f8e9a554004ee225f1bc0cdf0cfdfe
   NSJSONSerialization-ANDYJSONFile: 4a92ca174d5ccde13015e853e9eb62440459b478
