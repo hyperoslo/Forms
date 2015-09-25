@@ -1,11 +1,13 @@
 use_frameworks!
 
+pod 'Formatter'
 pod 'Hex'
 pod 'HYP8601'
 pod 'HYPImagePicker'
 pod 'HYPMathParser'
 pod 'HYPNorwegianAccountNumber'
 pod 'HYPNorwegianSSN'
+pod 'InputValidator'
 pod 'NSDate-HYPString'
 pod 'NSDictionary-ANDYSafeValue'
 pod 'NSDictionary-HYPImmutable'

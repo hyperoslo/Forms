@@ -1,7 +1,7 @@
 @import UIKit;
 
-#import "FORMInputValidator.h"
-#import "FORMFormatter.h"
+#import "InputValidator.h"
+#import "Formatter.h"
 
 typedef NS_ENUM(NSInteger, FORMTextFieldType) {
     FORMTextFieldTypeDefault = 0,
@@ -39,8 +39,8 @@ typedef NS_ENUM(NSInteger, FORMTextFieldInputType) {
 
 @property (nonatomic, copy) NSString *rawText;
 
-@property (nonatomic) FORMInputValidator *inputValidator;
-@property (nonatomic) FORMFormatter *formatter;
+@property (nonatomic) InputValidator *inputValidator;
+@property (nonatomic) Formatter *formatter;
 
 @property (nonatomic, copy) NSString *typeString;
 @property (nonatomic) FORMTextFieldType type;

@@ -21,11 +21,13 @@ Pod::Spec.new do |s|
   s.frameworks = 'Foundation'
   s.requires_arc = true
 
+  s.dependency 'Formatter', '~> 0.1.0'
   s.dependency 'Hex', '~> 2.0'
   s.dependency 'HYP8601', '~> 0.7.2'
   s.dependency 'HYPMathParser', '~> 0.4.1'
   s.dependency 'HYPNorwegianAccountNumber', '~> 1.2.1'
   s.dependency 'HYPNorwegianSSN', '~> 1.10.2'
+  s.dependency 'InputValidator', '~> 0.1.0'
   s.dependency 'NSDictionary-ANDYSafeValue', '~> 0.3'
   s.dependency 'NSDictionary-HYPNestedAttributes', '~> 0.4.1'
   s.dependency 'NSJSONSerialization-ANDYJSONFile', '~> 1.1'
