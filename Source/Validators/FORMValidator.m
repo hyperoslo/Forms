@@ -77,33 +77,32 @@
 }
 
 - (FORMValidationResultType)validateFieldValue:(id)fieldValue withDependentValue:(id)dependentValue withComparator:(NSString *)comparator {
-  if ([fieldValue isKindOfClass:[NSDate class]]) {
-    if ([comparator isEqualToString:@">"] && [fieldValue laterDate:dependentValue] == fieldValue) {
-      return FORMValidationResultTypeValid;
+    if ([fieldValue isKindOfClass:[NSDate class]]) {
+        if ([comparator isEqualToString:@">"] && [fieldValue laterDate:dependentValue] == fieldValue) {
+            return FORMValidationResultTypeValid;
+        }
+        else if ([comparator isEqualToString:@"<"] && [fieldValue earlierDate:dependentValue] == fieldValue) {
+            return FORMValidationResultTypeValid;
+        }
     }
-    else if ([comparator isEqualToString:@"<"] && [fieldValue earlierDate:dependentValue] == fieldValue) {
-      return FORMValidationResultTypeValid;
-    }
-  }
 
-  if ([comparator isEqualToString:@">"] && fieldValue > dependentValue) {
-    return FORMValidationResultTypeValid;
-  }
-  if ([comparator isEqualToString:@">="] && fieldValue >= dependentValue) {
-    return FORMValidationResultTypeValid;
-  }
-  if ([comparator isEqualToString:@"<"] && fieldValue < dependentValue) {
-    return FORMValidationResultTypeValid;
-  }
-  if ([comparator isEqualToString:@"<="] && fieldValue <= dependentValue) {
-    return FORMValidationResultTypeValid;
-  }
-  if ([comparator isEqualToString:@"=="] && fieldValue == dependentValue) {
-    return FORMValidationResultTypeValid;
-  }
-  return FORMValidationResultTypeInvalidTooShort;
+    if ([comparator isEqualToString:@">"] && fieldValue > dependentValue) {
+        return FORMValidationResultTypeValid;
+    }
+    if ([comparator isEqualToString:@">="] && fieldValue >= dependentValue) {
+        return FORMValidationResultTypeValid;
+    }
+    if ([comparator isEqualToString:@"<"] && fieldValue < dependentValue) {
+        return FORMValidationResultTypeValid;
+    }
+    if ([comparator isEqualToString:@"<="] && fieldValue <= dependentValue) {
+        return FORMValidationResultTypeValid;
+    }
+    if ([comparator isEqualToString:@"=="] && fieldValue == dependentValue) {
+        return FORMValidationResultTypeValid;
+    }
+    return FORMValidationResultTypeInvalidTooShort;
 }
-
 
 - (BOOL)validateString:(NSString *)fieldValue withFormat:(NSString *)format {
     if (!fieldValue) return YES;
@@ -122,7 +121,7 @@
     if (!validatorClass) {
         validatorClass = [FORMValidator class];
     }
-
+    
     return validatorClass;
 }
 
