@@ -1,4 +1,4 @@
-#import "NumberInputValidator.h"
+@import InputValidator.NumberInputValidator;
 
 @interface PostalCodeInputValidator : NumberInputValidator
 
