@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.dependency 'HYPMathParser', '~> 0.4.1'
   s.dependency 'HYPNorwegianAccountNumber', '~> 1.2.1'
   s.dependency 'HYPNorwegianSSN', '~> 1.10.2'
-  s.dependency 'InputValidator', '~> 0.1.0'
+  s.dependency 'InputValidator', '~> 0.2.0'
   s.dependency 'NSDictionary-ANDYSafeValue', '~> 0.3'
   s.dependency 'NSDictionary-HYPNestedAttributes', '~> 0.4.1'
   s.dependency 'NSJSONSerialization-ANDYJSONFile', '~> 1.1'
@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
   s.dependency 'NSString-HYPRelationshipParser', '~> 0.4.1'
   s.dependency 'NSString-HYPWordExtractor', '~> 1.2'
   s.dependency 'NSString-ZENInflections', '~> 1.2'
-  s.dependency 'TextField', '~> 0.1.2'
+  s.dependency 'TextField', '~> 0.1.3'
   s.dependency 'UIButton-ANDYHighlighted', '~> 0.2.1'
   s.dependency 'UIViewController-HYPKeyboardToolbar', '~> 0.1'
 end
