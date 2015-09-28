@@ -45,18 +45,9 @@ DEPENDENCIES:
   - NSString-HYPRelationshipParser
   - NSString-HYPWordExtractor
   - NSString-ZENInflections
-  - TextField (from `git@github.com:3lvis/TextField.git`)
+  - TextField
   - UIButton-ANDYHighlighted
   - UIViewController-HYPKeyboardToolbar
-
-EXTERNAL SOURCES:
-  TextField:
-    :git: git@github.com:3lvis/TextField.git
-
-CHECKOUT OPTIONS:
-  TextField:
-    :commit: 40fe29a92e87d5f050c02e754691ddb0cd9e2b3a
-    :git: git@github.com:3lvis/TextField.git
 
 SPEC CHECKSUMS:
   Formatter: 73864ad1997f323d93784529d1f786844b1bd613
