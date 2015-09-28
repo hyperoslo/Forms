@@ -1,6 +1,6 @@
 #import "FORMDefaultStyle.h"
 
-@import TextField;
+#import "FORMTextField.h";
 #import "FORMBackgroundView.h"
 #import "FORMSeparatorView.h"
 #import "FORMFieldValueLabel.h"
@@ -42,30 +42,30 @@
     [[FORMFieldValueCell appearance] setSelectedBackgroundViewColor:[[UIColor alloc] initWithHex:@"008ED9"]];
     [[FORMFieldValueCell appearance] setSelectedBackgroundFontColor:[UIColor whiteColor]];
 
-    [[TextField appearance] setTextColor:[UIColor redColor]];
-    [[TextField appearance] setBackgroundColor:[UIColor yellowColor]];
-    [[TextField appearance] setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:15.0]];
-    [[TextField appearance] setTextColor:[[UIColor alloc] initWithHex:@"455C73"]];
-    [[TextField appearance] setBorderWidth:1.0f];
-    [[TextField appearance] setBorderColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
-    [[TextField appearance] setCornerRadius:5.0f];
-    [[TextField appearance] setActiveBackgroundColor:[[UIColor alloc] initWithHex:@"C0EAFF"]];
-    [[TextField appearance] setActiveBorderColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
-    [[TextField appearance] setInactiveBackgroundColor:[[UIColor alloc] initWithHex:@"E1F5FF"]];
-    [[TextField appearance] setInactiveBorderColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
-    [[TextField appearance] setEnabledBackgroundColor:[[UIColor alloc] initWithHex:@"E1F5FF"]];
-    [[TextField appearance] setEnabledBorderColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
-    [[TextField appearance] setEnabledTextColor:[[UIColor alloc] initWithHex:@"455C73"]];
-    [[TextField appearance] setDisabledBackgroundColor:[[UIColor alloc] initWithHex:@"F5F5F8"]];
-    [[TextField appearance] setDisabledBorderColor:[[UIColor alloc] initWithHex:@"DEDEDE"]];
-    [[TextField appearance] setDisabledTextColor:[UIColor grayColor]];
-    [[TextField appearance] setValidBackgroundColor:[[UIColor alloc] initWithHex:@"E1F5FF"]];
-    [[TextField appearance] setValidBorderColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
-    [[TextField appearance] setInvalidBackgroundColor:[[UIColor alloc] initWithHex:@"FFD7D7"]];
-    [[TextField appearance] setInvalidBorderColor:[[UIColor alloc] initWithHex:@"EC3031"]];
-    [[TextField appearance] setClearButtonColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
-    [[TextField appearance] setMinusButtonColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
-    [[TextField appearance] setPlusButtonColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
+    [[FORMTextField appearance] setTextColor:[UIColor redColor]];
+    [[FORMTextField appearance] setBackgroundColor:[UIColor yellowColor]];
+    [[FORMTextField appearance] setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:15.0]];
+    [[FORMTextField appearance] setTextColor:[[UIColor alloc] initWithHex:@"455C73"]];
+    [[FORMTextField appearance] setBorderWidth:1.0f];
+    [[FORMTextField appearance] setBorderColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
+    [[FORMTextField appearance] setCornerRadius:5.0f];
+    [[FORMTextField appearance] setActiveBackgroundColor:[[UIColor alloc] initWithHex:@"C0EAFF"]];
+    [[FORMTextField appearance] setActiveBorderColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
+    [[FORMTextField appearance] setInactiveBackgroundColor:[[UIColor alloc] initWithHex:@"E1F5FF"]];
+    [[FORMTextField appearance] setInactiveBorderColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
+    [[FORMTextField appearance] setEnabledBackgroundColor:[[UIColor alloc] initWithHex:@"E1F5FF"]];
+    [[FORMTextField appearance] setEnabledBorderColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
+    [[FORMTextField appearance] setEnabledTextColor:[[UIColor alloc] initWithHex:@"455C73"]];
+    [[FORMTextField appearance] setDisabledBackgroundColor:[[UIColor alloc] initWithHex:@"F5F5F8"]];
+    [[FORMTextField appearance] setDisabledBorderColor:[[UIColor alloc] initWithHex:@"DEDEDE"]];
+    [[FORMTextField appearance] setDisabledTextColor:[UIColor grayColor]];
+    [[FORMTextField appearance] setValidBackgroundColor:[[UIColor alloc] initWithHex:@"E1F5FF"]];
+    [[FORMTextField appearance] setValidBorderColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
+    [[FORMTextField appearance] setInvalidBackgroundColor:[[UIColor alloc] initWithHex:@"FFD7D7"]];
+    [[FORMTextField appearance] setInvalidBorderColor:[[UIColor alloc] initWithHex:@"EC3031"]];
+    [[FORMTextField appearance] setClearButtonColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
+    [[FORMTextField appearance] setMinusButtonColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
+    [[FORMTextField appearance] setPlusButtonColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
 
     [[FORMFieldValueLabel appearance] setCustomFont:[UIFont fontWithName:@"AvenirNext-Regular" size:15.0]];
     [[FORMFieldValueLabel appearance] setTextColor:[[UIColor alloc] initWithHex:@"455C73"]];

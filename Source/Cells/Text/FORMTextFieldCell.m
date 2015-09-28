@@ -1,7 +1,7 @@
 #import "FORMTextFieldCell.h"
 
 #import "FORMTooltipView.h"
-
+#import "FORMTextField.h"
 @import Hex;
 
 static NSString * const FORMHideTooltips = @"FORMHideTooltips";
@@ -16,7 +16,7 @@ static NSString * const FORMTooltipBackgroundColorKey = @"tooltip_background_col
 
 @interface FORMTextFieldCell () <TextFieldDelegate>
 
-@property (nonatomic) TextField *textField;
+@property (nonatomic) FORMTextField *textField;
 @property (nonatomic) UILabel *tooltipLabel;
 @property (nonatomic) FORMTooltipView *tooltipView;
 @property (nonatomic) BOOL showTooltips;
@@ -76,10 +76,10 @@ static NSString * const FORMTooltipBackgroundColorKey = @"tooltip_background_col
 
 #pragma mark - Getters
 
-- (TextField *)textField {
+- (FORMTextField *)textField {
     if (_textField) return _textField;
 
-    _textField = [[TextField alloc] initWithFrame:[self textFieldFrame]];
+    _textField = [[FORMTextField alloc] initWithFrame:[self textFieldFrame]];
     _textField.textFieldDelegate = self;
 
     return _textField;
@@ -319,11 +319,11 @@ static NSString * const FORMTooltipBackgroundColorKey = @"tooltip_background_col
 
 #pragma mark - TextFieldDelegate
 
-- (void)textFormFieldDidBeginEditing:(TextField *)textField {
+- (void)textFormFieldDidBeginEditing:(FORMTextField *)textField {
     [self performSelector:@selector(showTooltip) withObject:nil afterDelay:0.1f];
 }
 
-- (void)textFormFieldDidEndEditing:(TextField *)textField {
+- (void)textFormFieldDidEndEditing:(FORMTextField *)textField {
     [self validate];
 
     if (!self.textField.valid) {
