@@ -1,7 +1,5 @@
 @import UIKit;
 
-@import TextField;
-
 #import "FORMField.h"
 
 static const CGFloat FORMFieldCellMarginTop = 30.0f;

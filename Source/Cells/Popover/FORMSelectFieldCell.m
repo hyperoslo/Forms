@@ -1,6 +1,7 @@
 #import "FORMSelectFieldCell.h"
 
 #import "FORMFieldValue.h"
+#import "FORMTextField.h"
 
 static const CGSize FORMSelectPopoverSize = { .width = 320.0f, .height = 308.0f };
 static const NSInteger FORMSelectMaxItemCount = 6;

@@ -7,8 +7,8 @@
 #import "FORMDataSource.h"
 #import "NSJSONSerialization+ANDYJSONFile.h"
 #import "NSDate+HYPString.h"
-#import "NameInputValidator.h"
 #import "PhoneNumberInputValidator.h"
+@import InputValidator.NameInputValidator;
 
 @interface FORMFieldTests : XCTestCase
 

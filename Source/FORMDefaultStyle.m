@@ -1,6 +1,6 @@
 #import "FORMDefaultStyle.h"
 
-#import "FORMTextField.h";
+#import "FORMTextField.h"
 #import "FORMBackgroundView.h"
 #import "FORMSeparatorView.h"
 #import "FORMFieldValueLabel.h"
