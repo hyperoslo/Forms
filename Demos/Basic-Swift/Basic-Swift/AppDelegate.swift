@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       let sampleController = SampleCollectionViewController(JSON: JSON, initialValues: initialValues)
       let rootViewController = UINavigationController(rootViewController: sampleController)
 
-      rootViewController.view.tintColor = UIColor(fromHex: "5182AF")
+      rootViewController.view.tintColor = UIColor(hex: "5182AF")
       rootViewController.navigationBarHidden = true
 
       FORMDefaultStyle.applyStyle()

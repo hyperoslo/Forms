@@ -16,7 +16,7 @@ class SampleCollectionViewController: FORMViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    self.collectionView?.backgroundColor = UIColor(fromHex: "DAE2EA")
+    self.collectionView?.backgroundColor = UIColor(hex: "DAE2EA")
   }
 
   override func viewDidAppear(animated: Bool) {
@@ -39,13 +39,13 @@ class SampleCollectionViewController: FORMViewController {
     let readOnlyView = UIView(frame: CGRectMake(0.0, 0.0, 150.0, 40.0))
     let readOnlyLabel = UILabel(frame: CGRectMake(0.0, 0.0, 90.0, 40.0))
     readOnlyLabel.text = "Read-Only"
-    readOnlyLabel.textColor = UIColor(fromHex: "5182AF")
+    readOnlyLabel.textColor = UIColor(hex: "5182AF")
     readOnlyLabel.font = UIFont.boldSystemFontOfSize(17.0)
 
     readOnlyView.addSubview(readOnlyLabel)
 
     let readOnlySwitch = UISwitch(frame: CGRectMake(90.0, 5.0, 40.0, 40.0))
-    readOnlySwitch.tintColor = UIColor(fromHex: "5182AF")
+    readOnlySwitch.tintColor = UIColor(hex: "5182AF")
     readOnlySwitch.on = true
     readOnlySwitch.addTarget(self,
       action: NSSelectorFromString("readOnly:"),

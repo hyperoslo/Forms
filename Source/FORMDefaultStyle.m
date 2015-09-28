@@ -16,9 +16,6 @@
 @implementation FORMDefaultStyle
 
 + (void)applyStyle {
-    [[FORMTextField appearance] setTextColor:[UIColor redColor]];
-    [[FORMTextField appearance] setBackgroundColor:[UIColor yellowColor]];
-
     [[FORMBaseFieldCell appearance] setHeadingLabelFont:[UIFont fontWithName:@"AvenirNext-DemiBold" size:14.0]];
     [[FORMBaseFieldCell appearance] setHeadingLabelTextColor:[[UIColor alloc] initWithHex:@"28649C"]];
 
@@ -45,6 +42,8 @@
     [[FORMFieldValueCell appearance] setSelectedBackgroundViewColor:[[UIColor alloc] initWithHex:@"008ED9"]];
     [[FORMFieldValueCell appearance] setSelectedBackgroundFontColor:[UIColor whiteColor]];
 
+    [[FORMTextField appearance] setTextColor:[UIColor redColor]];
+    [[FORMTextField appearance] setBackgroundColor:[UIColor yellowColor]];
     [[FORMTextField appearance] setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:15.0]];
     [[FORMTextField appearance] setTextColor:[[UIColor alloc] initWithHex:@"455C73"]];
     [[FORMTextField appearance] setBorderWidth:1.0f];
@@ -64,9 +63,7 @@
     [[FORMTextField appearance] setValidBorderColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
     [[FORMTextField appearance] setInvalidBackgroundColor:[[UIColor alloc] initWithHex:@"FFD7D7"]];
     [[FORMTextField appearance] setInvalidBorderColor:[[UIColor alloc] initWithHex:@"EC3031"]];
-    [[FORMTextField appearance] setClearButtonColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
-    [[FORMTextField appearance] setMinusButtonColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
-    [[FORMTextField appearance] setPlusButtonColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
+    [[FORMTextField appearance] setAccessoryButtonColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
 
     [[FORMFieldValueLabel appearance] setCustomFont:[UIFont fontWithName:@"AvenirNext-Regular" size:15.0]];
     [[FORMFieldValueLabel appearance] setTextColor:[[UIColor alloc] initWithHex:@"455C73"]];

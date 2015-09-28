@@ -19,13 +19,13 @@ class CustomField: FORMBaseFieldCell, UITextViewDelegate {
 
         var frame = CGRect(x: horizontalMargin, y: topMargin, width: width, height: height)
         let view = UITextView(frame: frame)
-        view.layer.borderColor = UIColor(fromHex: "35AEEE").CGColor
+        view.layer.borderColor = UIColor(hex: "35AEEE").CGColor
         view.layer.borderWidth = 1.0
         view.layer.cornerRadius = 5.0
 
-        view.backgroundColor = UIColor(fromHex: "E0F5FF")
+        view.backgroundColor = UIColor(hex: "E0F5FF")
         view.font = UIFont(name: "AvenirNext-Regular", size: 15.0)!
-        view.textColor = UIColor(fromHex: "455C73")
+        view.textColor = UIColor(hex: "455C73")
         view.delegate = self
 
         return view

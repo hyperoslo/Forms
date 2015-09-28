@@ -77,7 +77,7 @@ This are the required steps to create a basic form with a first name field.
 
 **Subclass**
 
-Make sure that your `UICollectionViewController` is a subclass of `FORMViewController`.
+Make sure that your `UICollectionViewController` is a subclass of `FORMViewController`. Check an Swift [example here](https://github.com/hyperoslo/Form/blob/master/Demos/Basic-Swift/Basic-Swift/SampleCollectionViewController.swift#L4-L8).
 
 ---------------------------
 

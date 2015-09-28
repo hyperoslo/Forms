@@ -1,6 +1,6 @@
 use_frameworks!
 
-pod 'Hex', '~> 1.1.1'
+pod 'Hex'
 pod 'HYP8601'
 pod 'HYPImagePicker'
 pod 'HYPMathParser'
@@ -17,5 +17,6 @@ pod 'NSString-HYPFormula'
 pod 'NSString-HYPRelationshipParser'
 pod 'NSString-HYPWordExtractor'
 pod 'NSString-ZENInflections'
+pod 'TextField'
 pod 'UIButton-ANDYHighlighted'
 pod 'UIViewController-HYPKeyboardToolbar'

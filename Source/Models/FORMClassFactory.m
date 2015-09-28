@@ -16,7 +16,7 @@
     [mutableString replaceCharactersInRange:NSMakeRange(0,1)
                                  withString:firstLetter];
 
-    NSString *classString = [NSString stringWithFormat:@"FORM%@%@", mutableString, suffix];
+    NSString *classString = [NSString stringWithFormat:@"%@%@", mutableString, suffix];
 
     return NSClassFromString(classString);
 }

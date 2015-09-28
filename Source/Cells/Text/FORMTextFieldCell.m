@@ -1,7 +1,7 @@
 #import "FORMTextFieldCell.h"
 
 #import "FORMTooltipView.h"
-
+#import "FORMTextField.h"
 @import Hex;
 
 static NSString * const FORMHideTooltips = @"FORMHideTooltips";
@@ -14,7 +14,7 @@ static NSString * const FORMTooltipFontSizeKey = @"tooltip_font_size";
 static NSString * const FORMTooltipLabelTextColorKey = @"tooltip_label_text_color";
 static NSString * const FORMTooltipBackgroundColorKey = @"tooltip_background_color";
 
-@interface FORMTextFieldCell () <FORMTextFieldDelegate>
+@interface FORMTextFieldCell () <TextFieldDelegate>
 
 @property (nonatomic) FORMTextField *textField;
 @property (nonatomic) UILabel *tooltipLabel;
@@ -317,7 +317,7 @@ static NSString * const FORMTooltipBackgroundColorKey = @"tooltip_background_col
     }
 }
 
-#pragma mark - FORMTextFieldDelegate
+#pragma mark - TextFieldDelegate
 
 - (void)textFormFieldDidBeginEditing:(FORMTextField *)textField {
     [self performSelector:@selector(showTooltip) withObject:nil afterDelay:0.1f];
@@ -336,7 +336,7 @@ static NSString * const FORMTooltipBackgroundColorKey = @"tooltip_background_col
     }
 }
 
-- (void)textFormField:(FORMTextField *)textField
+- (void)textFormField:(TextField *)textField
     didUpdateWithText:(NSString *)text {
     self.field.value = text;
     [self validate];
