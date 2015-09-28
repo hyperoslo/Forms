@@ -35,10 +35,6 @@
 		144A28E11A99B2CF004A9086 /* FORMTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 144A28A51A99B2CF004A9086 /* FORMTarget.m */; };
 		144A28E21A99B2CF004A9086 /* DDMathEvaluator+FORM.m in Sources */ = {isa = PBXBuildFile; fileRef = 144A28A81A99B2CF004A9086 /* DDMathEvaluator+FORM.m */; };
 		144A28E51A99B2CF004A9086 /* UIDevice+HYPRealOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 144A28AE1A99B2CF004A9086 /* UIDevice+HYPRealOrientation.m */; };
-		144A28E71A99B2CF004A9086 /* FORMBankAccountNumberValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 144A28B31A99B2CF004A9086 /* FORMBankAccountNumberValidator.m */; };
-		144A28E81A99B2CF004A9086 /* FORMPostalCodeValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 144A28B51A99B2CF004A9086 /* FORMPostalCodeValidator.m */; };
-		144A28E91A99B2CF004A9086 /* FORMSocialSecurityNumberValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 144A28B71A99B2CF004A9086 /* FORMSocialSecurityNumberValidator.m */; };
-		144A28EA1A99B2CF004A9086 /* FORMValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 144A28B91A99B2CF004A9086 /* FORMValidator.m */; };
 		144B80291AA882DB009C69DC /* section-field-position.json in Resources */ = {isa = PBXBuildFile; fileRef = 144B80281AA882DB009C69DC /* section-field-position.json */; };
 		1452EB621AA9BCFC0002863A /* FORMDefaultStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1452EB611AA9BCFC0002863A /* FORMDefaultStyle.m */; };
 		1492C05A1A9F740900D80D91 /* dynamic.json in Resources */ = {isa = PBXBuildFile; fileRef = 1492C0591A9F740900D80D91 /* dynamic.json */; };
@@ -59,6 +55,14 @@
 		149C29311A9A241D00F88B91 /* FORMImageFormFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C29301A9A241D00F88B91 /* FORMImageFormFieldCell.m */; };
 		149C29331A9A251800F88B91 /* forms.json in Resources */ = {isa = PBXBuildFile; fileRef = 149C29321A9A251800F88B91 /* forms.json */; };
 		14AFC1111AA7CF5C00583FC0 /* FORMSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AFC1101AA7CF5C00583FC0 /* FORMSeparatorView.m */; };
+		14B400C41BB72D140061F490 /* BankAccountNumberInputValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B400B21BB72D140061F490 /* BankAccountNumberInputValidator.m */; settings = {ASSET_TAGS = (); }; };
+		14B400C51BB72D140061F490 /* PhoneNumberInputValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B400B41BB72D140061F490 /* PhoneNumberInputValidator.m */; settings = {ASSET_TAGS = (); }; };
+		14B400C61BB72D140061F490 /* PostalCodeInputValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B400B61BB72D140061F490 /* PostalCodeInputValidator.m */; settings = {ASSET_TAGS = (); }; };
+		14B400C71BB72D140061F490 /* SocialSecurityNumberInputValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B400B81BB72D140061F490 /* SocialSecurityNumberInputValidator.m */; settings = {ASSET_TAGS = (); }; };
+		14B400C91BB72D140061F490 /* FORMBankAccountNumberValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B400BD1BB72D140061F490 /* FORMBankAccountNumberValidator.m */; settings = {ASSET_TAGS = (); }; };
+		14B400CA1BB72D140061F490 /* FORMPostalCodeValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B400BF1BB72D140061F490 /* FORMPostalCodeValidator.m */; settings = {ASSET_TAGS = (); }; };
+		14B400CB1BB72D140061F490 /* FORMSocialSecurityNumberValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B400C11BB72D140061F490 /* FORMSocialSecurityNumberValidator.m */; settings = {ASSET_TAGS = (); }; };
+		14B400CC1BB72D140061F490 /* FORMValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B400C31BB72D140061F490 /* FORMValidator.m */; settings = {ASSET_TAGS = (); }; };
 		14B564731A06D87B00342CDA /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 14B564721A06D87B00342CDA /* .travis.yml */; };
 		14C4183D1A019A1500636FD6 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 14C418391A019A1500636FD6 /* LICENSE.md */; };
 		14C4183E1A019A1500636FD6 /* FORM.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 14C4183A1A019A1500636FD6 /* FORM.podspec */; };
@@ -138,14 +142,6 @@
 		144A28A81A99B2CF004A9086 /* DDMathEvaluator+FORM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDMathEvaluator+FORM.m"; sourceTree = "<group>"; };
 		144A28AD1A99B2CF004A9086 /* UIDevice+HYPRealOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+HYPRealOrientation.h"; sourceTree = "<group>"; };
 		144A28AE1A99B2CF004A9086 /* UIDevice+HYPRealOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+HYPRealOrientation.m"; sourceTree = "<group>"; };
-		144A28B21A99B2CF004A9086 /* FORMBankAccountNumberValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMBankAccountNumberValidator.h; sourceTree = "<group>"; };
-		144A28B31A99B2CF004A9086 /* FORMBankAccountNumberValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMBankAccountNumberValidator.m; sourceTree = "<group>"; };
-		144A28B41A99B2CF004A9086 /* FORMPostalCodeValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMPostalCodeValidator.h; sourceTree = "<group>"; };
-		144A28B51A99B2CF004A9086 /* FORMPostalCodeValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMPostalCodeValidator.m; sourceTree = "<group>"; };
-		144A28B61A99B2CF004A9086 /* FORMSocialSecurityNumberValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMSocialSecurityNumberValidator.h; sourceTree = "<group>"; };
-		144A28B71A99B2CF004A9086 /* FORMSocialSecurityNumberValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMSocialSecurityNumberValidator.m; sourceTree = "<group>"; };
-		144A28B81A99B2CF004A9086 /* FORMValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMValidator.h; sourceTree = "<group>"; };
-		144A28B91A99B2CF004A9086 /* FORMValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMValidator.m; sourceTree = "<group>"; };
 		144B80281AA882DB009C69DC /* section-field-position.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "section-field-position.json"; sourceTree = "<group>"; };
 		1452EB601AA9BCFC0002863A /* FORMDefaultStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMDefaultStyle.h; sourceTree = "<group>"; };
 		1452EB611AA9BCFC0002863A /* FORMDefaultStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMDefaultStyle.m; sourceTree = "<group>"; };
@@ -169,6 +165,22 @@
 		149C29321A9A251800F88B91 /* forms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = forms.json; sourceTree = "<group>"; };
 		14AFC10F1AA7CF5C00583FC0 /* FORMSeparatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMSeparatorView.h; sourceTree = "<group>"; };
 		14AFC1101AA7CF5C00583FC0 /* FORMSeparatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMSeparatorView.m; sourceTree = "<group>"; };
+		14B400B11BB72D140061F490 /* BankAccountNumberInputValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankAccountNumberInputValidator.h; sourceTree = "<group>"; };
+		14B400B21BB72D140061F490 /* BankAccountNumberInputValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankAccountNumberInputValidator.m; sourceTree = "<group>"; };
+		14B400B31BB72D140061F490 /* PhoneNumberInputValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneNumberInputValidator.h; sourceTree = "<group>"; };
+		14B400B41BB72D140061F490 /* PhoneNumberInputValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneNumberInputValidator.m; sourceTree = "<group>"; };
+		14B400B51BB72D140061F490 /* PostalCodeInputValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostalCodeInputValidator.h; sourceTree = "<group>"; };
+		14B400B61BB72D140061F490 /* PostalCodeInputValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostalCodeInputValidator.m; sourceTree = "<group>"; };
+		14B400B71BB72D140061F490 /* SocialSecurityNumberInputValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialSecurityNumberInputValidator.h; sourceTree = "<group>"; };
+		14B400B81BB72D140061F490 /* SocialSecurityNumberInputValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialSecurityNumberInputValidator.m; sourceTree = "<group>"; };
+		14B400BC1BB72D140061F490 /* FORMBankAccountNumberValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMBankAccountNumberValidator.h; sourceTree = "<group>"; };
+		14B400BD1BB72D140061F490 /* FORMBankAccountNumberValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMBankAccountNumberValidator.m; sourceTree = "<group>"; };
+		14B400BE1BB72D140061F490 /* FORMPostalCodeValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMPostalCodeValidator.h; sourceTree = "<group>"; };
+		14B400BF1BB72D140061F490 /* FORMPostalCodeValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMPostalCodeValidator.m; sourceTree = "<group>"; };
+		14B400C01BB72D140061F490 /* FORMSocialSecurityNumberValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMSocialSecurityNumberValidator.h; sourceTree = "<group>"; };
+		14B400C11BB72D140061F490 /* FORMSocialSecurityNumberValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMSocialSecurityNumberValidator.m; sourceTree = "<group>"; };
+		14B400C21BB72D140061F490 /* FORMValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMValidator.h; sourceTree = "<group>"; };
+		14B400C31BB72D140061F490 /* FORMValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMValidator.m; sourceTree = "<group>"; };
 		14B564721A06D87B00342CDA /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		14C418261A01919C00636FD6 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C4182C1A01919C00636FD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -319,21 +331,6 @@
 			path = Others;
 			sourceTree = "<group>";
 		};
-		144A28B11A99B2CF004A9086 /* Validators */ = {
-			isa = PBXGroup;
-			children = (
-				144A28B21A99B2CF004A9086 /* FORMBankAccountNumberValidator.h */,
-				144A28B31A99B2CF004A9086 /* FORMBankAccountNumberValidator.m */,
-				144A28B41A99B2CF004A9086 /* FORMPostalCodeValidator.h */,
-				144A28B51A99B2CF004A9086 /* FORMPostalCodeValidator.m */,
-				144A28B61A99B2CF004A9086 /* FORMSocialSecurityNumberValidator.h */,
-				144A28B71A99B2CF004A9086 /* FORMSocialSecurityNumberValidator.m */,
-				144A28B81A99B2CF004A9086 /* FORMValidator.h */,
-				144A28B91A99B2CF004A9086 /* FORMValidator.m */,
-			);
-			path = Validators;
-			sourceTree = "<group>";
-		};
 		149C290E1A9A23DD00F88B91 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +364,36 @@
 				7A91EA7F1B61429300902BB4 /* collapsed-groups.json */,
 			);
 			path = JSONs;
+			sourceTree = "<group>";
+		};
+		14B400B01BB72D140061F490 /* InputValidators */ = {
+			isa = PBXGroup;
+			children = (
+				14B400B11BB72D140061F490 /* BankAccountNumberInputValidator.h */,
+				14B400B21BB72D140061F490 /* BankAccountNumberInputValidator.m */,
+				14B400B31BB72D140061F490 /* PhoneNumberInputValidator.h */,
+				14B400B41BB72D140061F490 /* PhoneNumberInputValidator.m */,
+				14B400B51BB72D140061F490 /* PostalCodeInputValidator.h */,
+				14B400B61BB72D140061F490 /* PostalCodeInputValidator.m */,
+				14B400B71BB72D140061F490 /* SocialSecurityNumberInputValidator.h */,
+				14B400B81BB72D140061F490 /* SocialSecurityNumberInputValidator.m */,
+			);
+			path = InputValidators;
+			sourceTree = "<group>";
+		};
+		14B400B91BB72D140061F490 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				14B400BC1BB72D140061F490 /* FORMBankAccountNumberValidator.h */,
+				14B400BD1BB72D140061F490 /* FORMBankAccountNumberValidator.m */,
+				14B400BE1BB72D140061F490 /* FORMPostalCodeValidator.h */,
+				14B400BF1BB72D140061F490 /* FORMPostalCodeValidator.m */,
+				14B400C01BB72D140061F490 /* FORMSocialSecurityNumberValidator.h */,
+				14B400C11BB72D140061F490 /* FORMSocialSecurityNumberValidator.m */,
+				14B400C21BB72D140061F490 /* FORMValidator.h */,
+				14B400C31BB72D140061F490 /* FORMValidator.m */,
+			);
+			path = Validators;
 			sourceTree = "<group>";
 		};
 		14C418111A01919C00636FD6 = {
@@ -425,7 +452,6 @@
 		14C418371A01974300636FD6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				144A284F1A99B2CF004A9086 /* Cells */,
 				144A287A1A99B2CF004A9086 /* FORMBackgroundView.h */,
 				144A287B1A99B2CF004A9086 /* FORMBackgroundView.m */,
 				144A28801A99B2CF004A9086 /* FORMData.h */,
@@ -446,9 +472,11 @@
 				BD5845741AC4074600596C62 /* FORMTooltipView.m */,
 				446C42641AF8B38F0002DFE9 /* FORMViewController.h */,
 				446C42651AF8B38F0002DFE9 /* FORMViewController.m */,
+				14B400B01BB72D140061F490 /* InputValidators */,
+				14B400B91BB72D140061F490 /* Validators */,
+				144A284F1A99B2CF004A9086 /* Cells */,
 				144A28971A99B2CF004A9086 /* Models */,
 				144A28A61A99B2CF004A9086 /* Others */,
-				144A28B11A99B2CF004A9086 /* Validators */,
 			);
 			name = Source;
 			path = ../Source;
@@ -638,24 +666,28 @@
 			files = (
 				1452EB621AA9BCFC0002863A /* FORMDefaultStyle.m in Sources */,
 				144A28BF1A99B2CF004A9086 /* FORMFieldValuesTableViewController.m in Sources */,
-				144A28E81A99B2CF004A9086 /* FORMPostalCodeValidator.m in Sources */,
 				144A28D01A99B2CF004A9086 /* FORMData.m in Sources */,
 				D5DFAA1B1AA87A9B0096FBFB /* FORMFieldValidationTests.m in Sources */,
+				14B400CB1BB72D140061F490 /* FORMSocialSecurityNumberValidator.m in Sources */,
 				144A28C51A99B2CF004A9086 /* FORMFieldValueLabel.m in Sources */,
 				7ACCACCB1B8E3FDC009B69AF /* FORMLayoutAttributes.m in Sources */,
-				144A28E91A99B2CF004A9086 /* FORMSocialSecurityNumberValidator.m in Sources */,
 				BD5845751AC4074600596C62 /* FORMTooltipView.m in Sources */,
+				14B400C71BB72D140061F490 /* SocialSecurityNumberInputValidator.m in Sources */,
 				144A28BE1A99B2CF004A9086 /* FORMFieldValueCell.m in Sources */,
 				14AFC1111AA7CF5C00583FC0 /* FORMSeparatorView.m in Sources */,
 				144A28E51A99B2CF004A9086 /* UIDevice+HYPRealOrientation.m in Sources */,
 				144A28BD1A99B2CF004A9086 /* FORMDateFieldCell.m in Sources */,
+				14B400C41BB72D140061F490 /* BankAccountNumberInputValidator.m in Sources */,
 				14298D6E1ADDA78F00607A49 /* FORMValidatorTests.m in Sources */,
 				149C29261A9A23DD00F88B91 /* FORMTargetTests.m in Sources */,
 				446C42661AF8B38F0002DFE9 /* FORMViewController.m in Sources */,
+				14B400C51BB72D140061F490 /* PhoneNumberInputValidator.m in Sources */,
 				144A28DE1A99B2CF004A9086 /* FORMFieldValue.m in Sources */,
 				144A28C11A99B2CF004A9086 /* FORMPopoverFieldCell.m in Sources */,
+				14B400CA1BB72D140061F490 /* FORMPostalCodeValidator.m in Sources */,
 				149C29311A9A241D00F88B91 /* FORMImageFormFieldCell.m in Sources */,
 				144A28C31A99B2CF004A9086 /* FORMTextFieldCell.m in Sources */,
+				14B400C91BB72D140061F490 /* FORMBankAccountNumberValidator.m in Sources */,
 				144A28CF1A99B2CF004A9086 /* FORMLayout.m in Sources */,
 				1440AF0D1AC1D76500F15D15 /* FORMGroupTests.m in Sources */,
 				144A28E21A99B2CF004A9086 /* DDMathEvaluator+FORM.m in Sources */,
@@ -663,9 +695,10 @@
 				144A28CE1A99B2CF004A9086 /* FORMDataSource.m in Sources */,
 				BDB7E31F1AA7016D00AF00BC /* FORMPostalCodeManager.m in Sources */,
 				149C29211A9A23DD00F88B91 /* FORMFieldValueTests.m in Sources */,
+				14B400C61BB72D140061F490 /* PostalCodeInputValidator.m in Sources */,
 				149C29231A9A23DD00F88B91 /* FORMDataSourceTests.m in Sources */,
-				144A28E71A99B2CF004A9086 /* FORMBankAccountNumberValidator.m in Sources */,
 				149C29291A9A23DD00F88B91 /* FORMTextFieldCellTests.m in Sources */,
+				14B400CC1BB72D140061F490 /* FORMValidator.m in Sources */,
 				144A28DD1A99B2CF004A9086 /* FORMFieldValidation.m in Sources */,
 				1449AE741AA07E0700BCC40E /* FORMField+Tests.m in Sources */,
 				144A28C21A99B2CF004A9086 /* FORMSelectFieldCell.m in Sources */,
@@ -676,7 +709,6 @@
 				144A28DF1A99B2CF004A9086 /* FORMGroup.m in Sources */,
 				144A28CD1A99B2CF004A9086 /* FORMBackgroundView.m in Sources */,
 				149C29241A9A23DD00F88B91 /* FORMSectionTests.m in Sources */,
-				144A28EA1A99B2CF004A9086 /* FORMValidator.m in Sources */,
 				149C29251A9A23DD00F88B91 /* FORMDataTests.m in Sources */,
 				149C29221A9A23DD00F88B91 /* FORMFieldTests.m in Sources */,
 				144A28DB1A99B2CF004A9086 /* FORMClassFactory.m in Sources */,

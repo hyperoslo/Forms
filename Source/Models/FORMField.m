@@ -178,6 +178,14 @@ static NSString * const FormatterSelector = @"formatString:reverse:";
 }
 
 - (id)inputValidator {
+    Validation *validation = [Validation new];
+    validation.format  = self.validation.format;
+    validation.maximumLength  = self.validation.maximumLength;
+    validation.minimumLength  = self.validation.minimumLength;
+    validation.maximumValue  = self.validation.maximumValue;
+    validation.minimumValue  = self.validation.minimumValue;
+    validation.required  = self.validation.required;
+
     InputValidator *inputValidator;
 
     Class fieldValidator = [FORMClassFactory classFromString:self.fieldID withSuffix:@"InputValidator"];
@@ -188,22 +196,9 @@ static NSString * const FormatterSelector = @"formatString:reverse:";
     SEL selector = NSSelectorFromString(InputValidatorSelector);
 
     if (fieldValidator && [fieldValidator instanceMethodForSelector:selector]) {
-        inputValidator = [fieldValidator new];
+        inputValidator = [[fieldValidator alloc] initWithValidation:validation];
     } else if (typeValidator && [typeValidator instanceMethodForSelector:selector]) {
-        inputValidator = [typeValidator new];
-    }
-
-    if (inputValidator) {
-        FieldValidation *validation = [FieldValidation new];
-        validation.compareRule  = self.validation.compareRule;
-        validation.compareToFieldID  = self.validation.compareToFieldID;
-        validation.format  = self.validation.format;
-        validation.maximumLength  = self.validation.maximumLength;
-        validation.minimumLength  = self.validation.minimumLength;
-        validation.maximumValue  = self.validation.maximumValue;
-        validation.minimumValue  = self.validation.minimumValue;
-        validation.required  = self.validation.required;
-        inputValidator.validation = validation;
+        inputValidator = [[typeValidator alloc] initWithValidation:validation];
     }
 
     return inputValidator;

@@ -1,15 +1,30 @@
 PODS:
+  - Form (3.7.0):
+    - Hex (~> 2.0)
+    - HYP8601 (~> 0.7.2)
+    - HYPMathParser (~> 0.4.1)
+    - HYPNorwegianAccountNumber (~> 1.2.1)
+    - HYPNorwegianSSN (~> 1.10.2)
+    - NSDictionary-ANDYSafeValue (~> 0.3)
+    - NSDictionary-HYPNestedAttributes (~> 0.4.1)
+    - NSJSONSerialization-ANDYJSONFile (~> 1.1)
+    - NSObject-HYPTesting (~> 1.2)
+    - NSString-HYPContainsString (~> 0.1)
+    - NSString-HYPFormula (~> 1.6.2)
+    - NSString-HYPRelationshipParser (~> 0.4.1)
+    - NSString-HYPWordExtractor (~> 1.2)
+    - NSString-ZENInflections (~> 1.2)
+    - TextField (~> 0.1.5)
+    - UIButton-ANDYHighlighted (~> 0.2.1)
+    - UIViewController-HYPKeyboardToolbar (~> 0.1)
   - Formatter (0.2.0)
   - Hex (2.0)
   - HYP8601 (0.7.2)
-  - HYPImagePicker (0.3)
   - HYPMathParser (0.4.1)
   - HYPNorwegianAccountNumber (1.2.1)
   - HYPNorwegianSSN (1.10.2)
   - InputValidator (0.2.1)
-  - NSDate-HYPString (0.2)
   - NSDictionary-ANDYSafeValue (0.3)
-  - NSDictionary-HYPImmutable (0.2)
   - NSDictionary-HYPNestedAttributes (0.4.1):
     - NSString-HYPRelationshipParser (~> 0.4.1)
   - NSJSONSerialization-ANDYJSONFile (1.1)
@@ -28,39 +43,22 @@ PODS:
   - UIViewController-HYPKeyboardToolbar (0.1)
 
 DEPENDENCIES:
-  - Hex
-  - HYP8601
-  - HYPImagePicker
-  - HYPMathParser
-  - HYPNorwegianAccountNumber
-  - HYPNorwegianSSN
-  - NSDate-HYPString
-  - NSDictionary-ANDYSafeValue
-  - NSDictionary-HYPImmutable
-  - NSDictionary-HYPNestedAttributes
-  - NSJSONSerialization-ANDYJSONFile
-  - NSObject-HYPTesting
-  - NSString-HYPContainsString
-  - NSString-HYPFormula
-  - NSString-HYPRelationshipParser
-  - NSString-HYPWordExtractor
-  - NSString-ZENInflections
-  - TextField
-  - UIButton-ANDYHighlighted
-  - UIViewController-HYPKeyboardToolbar
+  - Form (from `../../`)
+
+EXTERNAL SOURCES:
+  Form:
+    :path: "../../"
 
 SPEC CHECKSUMS:
+  Form: 5c0adb4be4fa8669cfde738f6bdffd36ab9b3198
   Formatter: 73864ad1997f323d93784529d1f786844b1bd613
   Hex: 1800bd20206b93b10422d2289baa3787698825ad
   HYP8601: 0118757c1332620748c75e7218e7b6b849686d06
-  HYPImagePicker: 5c6e463ec15ae6b647355eb11f3f310342616fbf
   HYPMathParser: 146a4981427a0b46cc9af823b210bfefdf0a7107
   HYPNorwegianAccountNumber: b0062d7419d217123dff0ef04f1931ed5f1e3bbf
   HYPNorwegianSSN: 1eb54f1488ac24cdd7d0aee34e10d0f826c27fc1
   InputValidator: 074fde37b5ff82a39e419d553219d205aecec915
-  NSDate-HYPString: b87cf854edd44ec1e186b32526c601502180846d
   NSDictionary-ANDYSafeValue: c15ff39a6b1b82a52ea277c64520c7b574715afc
-  NSDictionary-HYPImmutable: 5ab45ed9d8127636467736b51700d886bfcc48db
   NSDictionary-HYPNestedAttributes: 783d3adcf9f8e9a554004ee225f1bc0cdf0cfdfe
   NSJSONSerialization-ANDYJSONFile: 4a92ca174d5ccde13015e853e9eb62440459b478
   NSObject-HYPTesting: fadde70c75061b731b313c390e20777aed0a914d
