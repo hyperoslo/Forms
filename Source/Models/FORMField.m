@@ -1,9 +1,7 @@
 #import "FORMGroup.h"
 #import "FORMField.h"
 #import "FORMSection.h"
-#import "FORMValidator.h"
 #import "FORMFormatter.h"
-#import "FORMInputValidator.h"
 #import "FORMFieldValue.h"
 #import "FORMClassFactory.h"
 #import "FORMTarget.h"
@@ -29,7 +27,6 @@ static NSString * const FORMFormatterSelector = @"formatString:reverse:";
 
     _valid = YES;
     _fieldID = remoteID;
-    _validationResultType = FORMValidationResultTypeValid;
     _title = NSLocalizedString([dictionary andy_valueForKey:@"title"], nil);
     _typeString  = [dictionary andy_valueForKey:@"type"];
     _hidden = [[dictionary andy_valueForKey:@"hidden"] boolValue];
@@ -179,7 +176,8 @@ static NSString * const FORMFormatterSelector = @"formatString:reverse:";
 }
 
 - (id)inputValidator {
-    FORMInputValidator *inputValidator;
+    #warning disabled
+    /*FORMInputValidator *inputValidator;
 
     Class fieldValidator = [FORMClassFactory classFromString:self.fieldID withSuffix:@"InputValidator"];
 
@@ -198,7 +196,9 @@ static NSString * const FORMFormatterSelector = @"formatString:reverse:";
         inputValidator.validation = self.validation;
     }
 
-    return inputValidator;
+    return inputValidator;*/
+
+    return nil;
 }
 
 - (id)formatter {
@@ -268,7 +268,9 @@ static NSString * const FORMFormatterSelector = @"formatString:reverse:";
     return nil;
 }
 
-- (FORMValidationResultType)validate {
+- (BOOL)validate {
+#warning disabled
+    /*
     id validator;
     Class validatorClass;
 
@@ -285,7 +287,9 @@ static NSString * const FORMFormatterSelector = @"formatString:reverse:";
 
     self.valid = (self.validationResultType == FORMValidationResultTypeValid);
 
-    return self.validationResultType;
+    return self.validationResultType;*/
+
+    return YES;
 }
 
 #pragma mark - Public Methods

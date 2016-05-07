@@ -1,18 +1,12 @@
 #import "HYPSampleCollectionViewController.h"
 
-#import "FORMDataSource.h"
-#import "FORMPostalCodeManager.h"
-#import "FORMFieldValue.h"
 #import "HYPImagePicker.h"
 #import "HYPImageFormFieldCell.h"
-#import "FORMData.h"
-#import "FORMTextFieldCell.h"
-#import "FORMDefaultStyle.h"
-
 #import "NSObject+HYPTesting.h"
 #import "UIViewController+HYPKeyboardToolbar.h"
 #import "NSJSONSerialization+ANDYJSONFile.h"
 @import Hex;
+@import Form;
 
 @interface HYPSampleCollectionViewController () <HYPImagePickerDelegate>
 
@@ -181,11 +175,9 @@
 
 - (void)validateButtonAction {
     if ([self.dataSource isValid]) {
-        [[[UIAlertView alloc] initWithTitle:@"Everything is valid, you get a candy!"
-                                    message:nil
-                                   delegate:nil
-                          cancelButtonTitle:@"No, thanks"
-                          otherButtonTitles:nil, nil] show];
+        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Everything is valid, you get a candy!" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        [controller addAction:[UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:controller animated:YES completion:nil];
     } else {
         [self.dataSource validate];
     }
