@@ -16,10 +16,12 @@
     return self;
 }
 
-#pragma mark - Layout
+#pragma mark - FORMBaseFormFieldCell
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
+- (void)updateWithField:(FORMField *)field {
+    [super updateWithField:field];
+
+    self.headingLabel.hidden = YES;
 }
 
 @end
