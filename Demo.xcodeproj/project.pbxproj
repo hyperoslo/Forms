@@ -150,10 +150,19 @@
 		649DE2B414E765BA54759ECE /* Pods_CocoaPods_Payment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AA0E4E14E48A69AC562E605 /* Pods_CocoaPods_Payment.framework */; };
 		72DEC9A3753978AEF3383E56 /* Pods_CocoaPods_iPhone_Storyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F9A5FF448CDE99A084DAF4 /* Pods_CocoaPods_iPhone_Storyboard.framework */; };
 		7878EFBDBA2F722E24CF62C4 /* Pods_CocoaPods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADF7319532C286F8BEAEFF49 /* Pods_CocoaPods_Tests.framework */; };
-		7AB346CB1D78CCB100AAAD2E /* FORMSpacerFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB346CA1D78CCB100AAAD2E /* FORMSpacerFieldCell.m */; };
 		825F6E98164CA04CDE12F270 /* Pods_CocoaPods_ModalForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C9B4BD521E20A90A708235 /* Pods_CocoaPods_ModalForm.framework */; };
 		82B59BA34A26252CFF5C11CB /* Pods_CocoaPods_Basic_ObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF9D9A1384FFF4964BDEA19 /* Pods_CocoaPods_Basic_ObjC.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7A5850AA1D7DB0290025936C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146D728B1AB782920058798C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1406BB791BEA520D00131623;
+			remoteInfo = "Basic-ObjC";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1406BB7A1BEA520D00131623 /* Basic-ObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Basic-ObjC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -388,7 +397,6 @@
 		7313DABFEEF45FCCCD39281E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A979DD3111677D9FF793855 /* Pods_CocoaPods_Basic_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocoaPods_Basic_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB346C91D78CCB100AAAD2E /* FORMSpacerFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORMSpacerFieldCell.h; sourceTree = "<group>"; };
-		7AB346CA1D78CCB100AAAD2E /* FORMSpacerFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORMSpacerFieldCell.m; sourceTree = "<group>"; };
 		819E8FEB0A9EFC41EB1342E9 /* Pods-CocoaPods-CustomField.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaPods-CustomField.release.xcconfig"; path = "Pods/Target Support Files/Pods-CocoaPods-CustomField/Pods-CocoaPods-CustomField.release.xcconfig"; sourceTree = "<group>"; };
 		882BE0937534429CE9BABA74 /* Pods-CocoaPods-ModalForm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaPods-ModalForm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CocoaPods-ModalForm/Pods-CocoaPods-ModalForm.debug.xcconfig"; sourceTree = "<group>"; };
 		931C1A26BDC7EECC928CEBC6 /* Pods-CocoaPods-Basic-ObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaPods-Basic-ObjC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CocoaPods-Basic-ObjC/Pods-CocoaPods-Basic-ObjC.debug.xcconfig"; sourceTree = "<group>"; };
@@ -997,7 +1005,6 @@
 			isa = PBXGroup;
 			children = (
 				7AB346C91D78CCB100AAAD2E /* FORMSpacerFieldCell.h */,
-				7AB346CA1D78CCB100AAAD2E /* FORMSpacerFieldCell.m */,
 			);
 			path = Spacer;
 			sourceTree = "<group>";
@@ -1162,6 +1169,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7A5850AB1D7DB0290025936C /* PBXTargetDependency */,
 			);
 			name = Tests;
 			productName = PodTests;
@@ -1219,6 +1227,8 @@
 					};
 					146D72AB1AB782920058798C = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = DYC5F7WXL9;
+						TestTargetID = 1406BB791BEA520D00131623;
 					};
 					14BD560E1BEA576F0043A673 = {
 						CreatedOnToolsVersion = 7.1;
@@ -1847,7 +1857,6 @@
 				1408042F1BEA50C00098C288 /* FORMDataTests.m in Sources */,
 				140803EB1BEA50AB0098C288 /* FORMGroupHeaderView.m in Sources */,
 				140804061BEA50AB0098C288 /* FORMSocialSecurityNumberValidator.m in Sources */,
-				7AB346CB1D78CCB100AAAD2E /* FORMSpacerFieldCell.m in Sources */,
 				140803D51BEA50AB0098C288 /* FORMBaseFieldCell.m in Sources */,
 				140804301BEA50C00098C288 /* FORMEmailFormatterTests.m in Sources */,
 				140804361BEA50C00098C288 /* FORMInputValidatorTests.m in Sources */,
@@ -1869,6 +1878,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7A5850AB1D7DB0290025936C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1406BB791BEA520D00131623 /* Basic-ObjC */;
+			targetProxy = 7A5850AA1D7DB0290025936C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1406BB871BEA520D00131623 /* LaunchScreen.storyboard */ = {
@@ -2255,6 +2272,7 @@
 			baseConfigurationReference = E94753722A8B8892B810A468 /* Pods-CocoaPods-Tests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = DYC5F7WXL9;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -2265,6 +2283,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sample.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Basic-ObjC.app/Basic-ObjC";
 			};
 			name = Debug;
 		};
@@ -2273,11 +2292,13 @@
 			baseConfigurationReference = B0D5AF4466209A639EDA2A38 /* Pods-CocoaPods-Tests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = DYC5F7WXL9;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sample.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Basic-ObjC.app/Basic-ObjC";
 			};
 			name = Release;
 		};
