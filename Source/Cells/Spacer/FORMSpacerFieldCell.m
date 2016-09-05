@@ -16,14 +16,6 @@
     return self;
 }
 
-#pragma mark - FORMBaseFormFieldCell
-
-- (void)updateWithField:(FORMField *)field {
-    [super updateWithField:field];
-
-    self.headingLabel.hidden = YES;
-}
-
 #pragma mark - Layout
 
 - (void)layoutSubviews {
