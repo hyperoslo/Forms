@@ -1212,7 +1212,7 @@
 			attributes = {
 				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					1406BB791BEA520D00131623 = {
@@ -1986,9 +1986,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 931C1A26BDC7EECC928CEBC6 /* Pods-CocoaPods-Basic-ObjC.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Basic-ObjC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -2003,9 +2003,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ED07FBCAC9A7D5BE4C66B1D9 /* Pods-CocoaPods-Basic-ObjC.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Basic-ObjC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -2020,9 +2020,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F3F7C1F7C661094C0BA21EBB /* Pods-CocoaPods-Basic-Swift.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Basic-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -2038,9 +2038,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2654965B789DC24EDB3A5102 /* Pods-CocoaPods-Basic-Swift.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Basic-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -2055,9 +2055,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F5D6B2969A264B95E1E097A4 /* Pods-CocoaPods-CustomField.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CustomField/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -2073,9 +2073,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 819E8FEB0A9EFC41EB1342E9 /* Pods-CocoaPods-CustomField.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CustomField/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -2090,10 +2090,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9BF713C0A701F3557834B67F /* Pods-CocoaPods-Payment.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = Payment/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -2110,10 +2110,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2C923DFB637E3B2E6D7C4600 /* Pods-CocoaPods-Payment.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = Payment/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -2129,9 +2129,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 50D77918C798DC1313D4D76D /* Pods-CocoaPods-iPhone-Storyboard.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "iPhone-Storyboard/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -2146,9 +2146,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D8B2E911D3B2B604DA0EB63F /* Pods-CocoaPods-iPhone-Storyboard.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "iPhone-Storyboard/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -2163,9 +2163,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 882BE0937534429CE9BABA74 /* Pods-CocoaPods-ModalForm.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = ModalForm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -2180,9 +2180,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 292F6DB962486540B88D73A4 /* Pods-CocoaPods-ModalForm.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = ModalForm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -2196,6 +2196,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2205,8 +2206,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2215,6 +2218,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -2238,6 +2242,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2247,8 +2252,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2256,6 +2263,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -2265,6 +2273,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -2273,6 +2282,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E94753722A8B8892B810A468 /* Pods-CocoaPods-Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2292,6 +2302,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B0D5AF4466209A639EDA2A38 /* Pods-CocoaPods-Tests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
@@ -2306,9 +2317,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E68822A9986A456096C76399 /* Pods-CocoaPods-LoginDemo.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = LoginDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -2323,9 +2334,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D022D2A592F71840B31E840F /* Pods-CocoaPods-LoginDemo.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = LoginDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
