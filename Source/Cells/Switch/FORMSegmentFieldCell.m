@@ -44,10 +44,8 @@ static NSString * const FORMSegmentBackgroundColorKey = @"background_color";
     
     [field.values enumerateObjectsUsingBlock:^(FORMFieldValue *value, NSUInteger index, BOOL *stop) {
         [self.segment insertSegmentWithTitle:value.title atIndex:index animated:NO];
-        
-        if ([value.valueID isEqualToString:field.value]) {
-            [self.segment setSelectedSegmentIndex:index];
-        } else if (value.defaultValue) {
+
+        if (value.defaultValue) {
             [self.segment setSelectedSegmentIndex:index];
         }
     }];
