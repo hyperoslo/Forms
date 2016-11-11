@@ -42,8 +42,6 @@
         return [self.valueID isEqualToNumber:identifier];
     } else if ([self.valueID isKindOfClass:[NSDate class]]) {
         return [self.valueID isEqualToDate:identifier];
-    } else {
-        abort();
     }
 
     return NO;
