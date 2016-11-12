@@ -5,6 +5,9 @@
 static NSString * const FORMToggleTintColorKey = @"tint_color";
 static NSString * const FORMToggleBackgroundColorKey = @"background_color";
 
+static const CGFloat FORMToggleFieldCellMarginTop = 36.0f;
+static const CGFloat FORMToggleFieldCellMarginBottom = 4.0f;
+
 @interface FORMToggleFieldCell ()
 
 @property (nonatomic) UISwitch *toggle;
@@ -55,8 +58,8 @@ static NSString * const FORMToggleBackgroundColorKey = @"background_color";
 
 - (CGRect)toggleFrame {
     CGFloat marginX = FORMTextFieldCellMarginX;
-    CGFloat marginTop = FORMFieldCellMarginTop;
-    CGFloat marginBotton = FORMFieldCellMarginBottom;
+    CGFloat marginTop = FORMToggleFieldCellMarginTop;
+    CGFloat marginBotton = FORMToggleFieldCellMarginBottom;
     
     CGFloat width  = CGRectGetWidth(self.frame) - (marginX * 2);
     CGFloat height = CGRectGetHeight(self.frame) - marginTop - marginBotton;
