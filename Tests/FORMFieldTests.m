@@ -186,6 +186,29 @@
     XCTAssertTrue(field.disabled);
     XCTAssertNil(field.validation);
     XCTAssertFalse(field.hidden);
+    
+    field = [[FORMField alloc] initWithDictionary:@{@"id": @"toggle_control",
+                                                    @"title": @"Toggle Control",
+                                                    @"accessibility_label": @"Accessibility label",
+                                                    @"type": @"toggle",
+                                                    @"value": @YES,
+                                                    @"size": @{@"width": @30,
+                                                               @"height": @1}
+                                                    }
+                                         position:1
+                                         disabled:NO
+                                disabledFieldsIDs:@[@"toggle_control"]];
+    XCTAssertNotNil(field);
+    XCTAssertEqualObjects(field.typeString, @"toggle");
+    XCTAssertTrue(field.type == FORMFieldTypeToggle);
+    
+    XCTAssertEqualObjects(field.value, @YES);
+    XCTAssertEqualObjects(field.accessibilityLabel, @"Accessibility label");
+    
+    XCTAssertTrue(CGSizeEqualToSize(field.size, CGSizeMake(30, 1)));
+    XCTAssertTrue(field.disabled);
+    XCTAssertNil(field.validation);
+    XCTAssertFalse(field.hidden);
 }
 
 - (void)testInputValidator {

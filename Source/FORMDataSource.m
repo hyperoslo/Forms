@@ -9,6 +9,7 @@
 #import "FORMButtonFieldCell.h"
 #import "FORMSpacerFieldCell.h"
 #import "FORMSegmentFieldCell.h"
+#import "FORMToggleFieldCell.h"
 #import "FORMFieldValue.h"
 #import "HYPParsedRelationship.h"
 
@@ -192,6 +193,12 @@ static const CGFloat FORMKeyboardAnimationDuration = 0.3f;
         case FORMFieldTypeSegment:
             identifier = [NSString stringWithFormat:@"%@-%@", FORMSegmentFieldCellIdentifier, field.fieldID];
             [collectionView registerClass:[FORMSegmentFieldCell class]
+               forCellWithReuseIdentifier:identifier];
+            break;
+        
+        case FORMFieldTypeToggle:
+            identifier = [NSString stringWithFormat:@"%@-%@", FORMToggleFieldCellIdentifier, field.fieldID];
+            [collectionView registerClass:[FORMToggleFieldCell class]
                forCellWithReuseIdentifier:identifier];
             break;
         

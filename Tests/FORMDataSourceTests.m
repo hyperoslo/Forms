@@ -947,6 +947,15 @@
     XCTAssertEqualObjects([segmentField.styles objectForKey:@"font"], @"AvenirNext-DemiBold");
     XCTAssertEqualObjects([segmentField.styles objectForKey:@"font_size"], @"16.0");
     
+    // Toggle Field Styles
+    FORMField *toggleField = [dataSource fieldWithID:@"styled_toggle" includingHiddenFields:NO];
+    XCTAssertNotNil(toggleField);
+    
+    [dataSource fieldCell:nil updatedWithField:toggleField];
+    XCTAssertNotNil(toggleField.styles);
+    XCTAssertEqualObjects([toggleField.styles objectForKey:@"tint_color"], @"#FF0000");
+    XCTAssertEqualObjects([toggleField.styles objectForKey:@"background_color"], @"#FFFFFF");
+    
     // Text Field Styles
     FORMField *textField = [dataSource fieldWithID:@"styled_text_field" includingHiddenFields:NO];
     XCTAssertNotNil(textField);

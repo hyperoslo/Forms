@@ -10,6 +10,7 @@
 #import "FORMTextFieldCell.h"
 #import "FORMButtonFieldCell.h"
 #import "FORMSegmentFieldCell.h"
+#import "FORMToggleFieldCell.h"
 #import "FORMBaseFieldCell.h"
 
 @import Hex;
@@ -105,6 +106,9 @@
     [[FORMSegmentFieldCell appearance] setLabelFont:[UIFont fontWithName:@"AvenirNext-DemiBold" size:16.0]];
     [[FORMSegmentFieldCell appearance] setBackgroundColor:[[UIColor alloc] initWithHex:@"FFFFFF"]];
     [[FORMSegmentFieldCell appearance] setTintColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
+    
+    [[FORMToggleFieldCell appearance] setBackgroundColor:[[UIColor alloc] initWithHex:@"FFFFFF"]];
+    [[FORMToggleFieldCell appearance] setTintColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
     
 }
 
