@@ -112,9 +112,9 @@
               },
             },
             {
-              "id":"styled_toggle",
-              "title":"Styled Toggle",
-              "type":"toggle",
+              "id":"styled_switch",
+              "title":"Styled Switch",
+              "type":"switch",
               "styles":{
                 "background_color":"#FFFFFF",
                 "tint_color":"#FF0000"

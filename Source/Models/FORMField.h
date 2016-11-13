@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, FORMFieldType) {
     FORMFieldTypeSpacer,
     FORMFieldTypeCount,
     FORMFieldTypeSegment,
-    FORMFieldTypeToggle,
+    FORMFieldTypeSwitch,
     FORMFieldTypeCustom
 };
 

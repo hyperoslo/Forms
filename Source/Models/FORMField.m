@@ -141,7 +141,7 @@ static NSString * const FORMFormatterSelector = @"formatString:reverse:";
         case FORMFieldTypeButton:
         case FORMFieldTypeSpacer:
         case FORMFieldTypeSegment:
-        case FORMFieldTypeToggle:
+        case FORMFieldTypeSwitch:
         case FORMFieldTypeCustom:
             break;
     }
@@ -183,7 +183,7 @@ static NSString * const FORMFormatterSelector = @"formatString:reverse:";
         case FORMFieldTypeButton:
         case FORMFieldTypeSpacer:
         case FORMFieldTypeSegment:
-        case FORMFieldTypeToggle:
+        case FORMFieldTypeSwitch:
         case FORMFieldTypeCustom:
             return nil;
     }
@@ -259,8 +259,8 @@ static NSString * const FORMFormatterSelector = @"formatString:reverse:";
         return FORMFieldTypeSpacer;
     } else if ([typeString isEqualToString:@"segment"]) {
         return FORMFieldTypeSegment;
-    } else if ([typeString isEqualToString:@"toggle"]) {
-        return FORMFieldTypeToggle;
+    } else if ([typeString isEqualToString:@"switch"]) {
+        return FORMFieldTypeSwitch;
     } else {
         return FORMFieldTypeCustom;
     }

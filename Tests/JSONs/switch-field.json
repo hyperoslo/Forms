@@ -7,9 +7,9 @@
         "id": "section",
         "fields": [
           {
-            "id": "toggle",
-            "title": "My Toggle",
-            "type": "toggle",
+            "id": "switch",
+            "title": "My Switch",
+            "type": "switch",
             "value": true,
             "size": {
               "width": 25,
