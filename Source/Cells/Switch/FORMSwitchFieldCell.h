@@ -2,9 +2,9 @@
 
 #import "FORMBaseFieldCell.h"
 
-static NSString * const FORMToggleFieldCellIdentifier = @"FORMToggleFieldCellIdentifier";
+static NSString * const FORMSwitchFieldCellIdentifier = @"FORMSwitchFieldCellIdentifier";
 
-@interface FORMToggleFieldCell : FORMBaseFieldCell
+@interface FORMSwitchFieldCell : FORMBaseFieldCell
 
 - (void)setTintColor:(UIColor *)tintColor UI_APPEARANCE_SELECTOR;
 - (void)setBackgroundColor:(UIColor *)backgroundColor UI_APPEARANCE_SELECTOR;

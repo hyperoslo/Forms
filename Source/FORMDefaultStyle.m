@@ -10,7 +10,7 @@
 #import "FORMTextFieldCell.h"
 #import "FORMButtonFieldCell.h"
 #import "FORMSegmentFieldCell.h"
-#import "FORMToggleFieldCell.h"
+#import "FORMSwitchFieldCell.h"
 #import "FORMBaseFieldCell.h"
 
 @import Hex;
@@ -107,8 +107,8 @@
     [[FORMSegmentFieldCell appearance] setBackgroundColor:[[UIColor alloc] initWithHex:@"FFFFFF"]];
     [[FORMSegmentFieldCell appearance] setTintColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
     
-    [[FORMToggleFieldCell appearance] setBackgroundColor:[[UIColor alloc] initWithHex:@"FFFFFF"]];
-    [[FORMToggleFieldCell appearance] setTintColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
+    [[FORMSwitchFieldCell appearance] setBackgroundColor:[[UIColor alloc] initWithHex:@"FFFFFF"]];
+    [[FORMSwitchFieldCell appearance] setTintColor:[[UIColor alloc] initWithHex:@"3DAFEB"]];
     
 }
 

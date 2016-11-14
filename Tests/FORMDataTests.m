@@ -824,8 +824,8 @@
     XCTAssertEqualObjects(formData.values[@"segment"], @"part_1");
 }
 
-- (void)testInitializatingAToggleFieldWithAValueInTheJSON {
-    NSArray *JSON = [NSJSONSerialization JSONObjectWithContentsOfFile:@"toggle-field.json"
+- (void)testInitializatingASwitchFieldWithAValueInTheJSON {
+    NSArray *JSON = [NSJSONSerialization JSONObjectWithContentsOfFile:@"switch-field.json"
                                                              inBundle:[NSBundle bundleForClass:[self class]]];
     
     FORMData *formData = [[FORMData alloc] initWithJSON:JSON
@@ -833,7 +833,7 @@
                                        disabledFieldIDs:nil
                                                disabled:NO];
     
-    XCTAssertEqualObjects(formData.values[@"toggle"], @YES);
+    XCTAssertEqualObjects(formData.values[@"switch"], @YES);
 }
 
 - (void)testFieldStyles {
@@ -874,8 +874,8 @@
     XCTAssertEqualObjects([field.styles objectForKey:@"font"], @"AvenirNext-DemiBold");
     XCTAssertEqualObjects([field.styles objectForKey:@"font_size"], @"16.0");
     
-    // Toggle Styles
-    field = [formData fieldWithID:@"styled_toggle" includingHiddenFields:NO];
+    // Switch Styles
+    field = [formData fieldWithID:@"styled_switch" includingHiddenFields:NO];
     XCTAssertNotNil(field);
     XCTAssertNotNil(field.styles);
     

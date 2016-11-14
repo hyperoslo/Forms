@@ -187,20 +187,20 @@
     XCTAssertNil(field.validation);
     XCTAssertFalse(field.hidden);
     
-    field = [[FORMField alloc] initWithDictionary:@{@"id": @"toggle_control",
-                                                    @"title": @"Toggle Control",
+    field = [[FORMField alloc] initWithDictionary:@{@"id": @"switch_control",
+                                                    @"title": @"Switch Control",
                                                     @"accessibility_label": @"Accessibility label",
-                                                    @"type": @"toggle",
+                                                    @"type": @"switch",
                                                     @"value": @YES,
                                                     @"size": @{@"width": @30,
                                                                @"height": @1}
                                                     }
                                          position:1
                                          disabled:NO
-                                disabledFieldsIDs:@[@"toggle_control"]];
+                                disabledFieldsIDs:@[@"switch_control"]];
     XCTAssertNotNil(field);
-    XCTAssertEqualObjects(field.typeString, @"toggle");
-    XCTAssertTrue(field.type == FORMFieldTypeToggle);
+    XCTAssertEqualObjects(field.typeString, @"switch");
+    XCTAssertTrue(field.type == FORMFieldTypeSwitch);
     
     XCTAssertEqualObjects(field.value, @YES);
     XCTAssertEqualObjects(field.accessibilityLabel, @"Accessibility label");
