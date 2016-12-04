@@ -420,8 +420,10 @@ static const CGFloat FORMKeyboardAnimationDuration = 0.3f;
         }
     }
 
-    [UIView performWithoutAnimation:^{
-        [self.collectionView reloadItemsAtIndexPaths:[self.collectionView indexPathsForVisibleItems]];
+    [UIView animateWithDuration:0 animations:^{
+        [self.collectionView performBatchUpdates:^{
+            [self.collectionView reloadItemsAtIndexPaths:[self.collectionView indexPathsForVisibleItems]];
+        } completion:nil];
     }];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:FORMHideTooltips
@@ -720,6 +722,14 @@ static const CGFloat FORMKeyboardAnimationDuration = 0.3f;
 }
 
 - (void)processTargets:(NSArray *)targets {
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_9_x_Max) {
+        [self performSelector:@selector(startProcessTargets:) withObject:targets afterDelay:0.01];
+    } else {
+        [self startProcessTargets:targets];
+    }
+}
+
+- (void)startProcessTargets:(NSArray *)targets {
     [FORMTarget filteredTargets:targets
                        filtered:^(NSArray *shownTargets,
                                   NSArray *hiddenTargets,
