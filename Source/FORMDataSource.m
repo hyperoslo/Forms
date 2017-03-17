@@ -419,8 +419,10 @@ static const CGFloat FORMKeyboardAnimationDuration = 0.3f;
         }
     }
 
-    [UIView performWithoutAnimation:^{
-        [self.collectionView reloadItemsAtIndexPaths:[self.collectionView indexPathsForVisibleItems]];
+    [UIView animateWithDuration:0 animations:^{
+        [self.collectionView performBatchUpdates:^{
+            [self.collectionView reloadItemsAtIndexPaths:[self.collectionView indexPathsForVisibleItems]];
+        } completion:nil];
     }];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:FORMHideTooltips
@@ -719,6 +721,20 @@ static const CGFloat FORMKeyboardAnimationDuration = 0.3f;
 }
 
 - (void)processTargets:(NSArray *)targets {
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_9_x_Max) {
+        /*
+         Fixes: https://github.com/hyperoslo/Form/issues/559
+         This resolves the crash presented in issue #559. I think is likely because the layout is computing different states at the same time, first the scrolling, then the enabling and then processing the targets, adding some delay fixes the issue. Also, it seems like `UIView performWithoutAnimation` wasn't working as it should, so I had to update that as well.
+
+         This crash only occurs on iOS 10.
+         */
+        [self performSelector:@selector(startProcessTargets:) withObject:targets afterDelay:0.01];
+    } else {
+        [self startProcessTargets:targets];
+    }
+}
+
+- (void)startProcessTargets:(NSArray *)targets {
     [FORMTarget filteredTargets:targets
                        filtered:^(NSArray *shownTargets,
                                   NSArray *hiddenTargets,
