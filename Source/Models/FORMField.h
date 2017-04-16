@@ -54,6 +54,8 @@ typedef NS_ENUM(NSInteger, FORMFieldType) {
 @property (nonatomic) FORMValidationResultType validationResultType;
 @property (nonatomic) BOOL sectionSeparator;
 
+@property (nonatomic, strong) UIColor *backgroundFieldColor;
+
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
                           position:(NSInteger)position
                           disabled:(BOOL)disabled
